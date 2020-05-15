@@ -1,9 +1,10 @@
 import React from 'react';
-import { Icon, Button, Segment, Grid, Header, Image } from 'semantic-ui-react';
-import Biografia from './components/biografia';
+import { Icon, Button, Segment, Grid, Header, Image, Responsive } from 'semantic-ui-react';
+import Resume from './components/resume';
 import Techs from './components/technologies';
 import Experience from './components/cv';
 import Contact from './components/contact';
+import Education from './components/education';
 
 export interface IBodyProps{}
 export interface IBodyState{
@@ -18,12 +19,16 @@ class Body extends React.Component<IBodyProps, IBodyState>{
     }
     render() {
         return(
-            <Segment scrollable>
-                <Biografia/>
-                <Experience/>
-                <Techs/>
-                <Contact/>
-            </Segment>
+            <Segment.Group scrollable>
+                <Responsive as={Segment}>
+                    <Image centered src={require('../assets/images/yo3.jpg')} size='big' circular />
+                    <Resume/>
+                    <Education/>
+                    <Experience/>
+                    <Techs/>
+                    <Contact/>
+                </Responsive>
+            </Segment.Group>
         );
     }
 }

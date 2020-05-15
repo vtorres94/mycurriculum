@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Button, Segment, Grid, Header as Text } from 'semantic-ui-react';
+import { Icon, Button, Segment, Grid, Header, List } from 'semantic-ui-react';
 
 export interface IFooterProps{}
 export interface IFooterState{
@@ -15,13 +15,34 @@ class Footer extends React.Component<IFooterProps, IFooterState>{
     }
     render() {
         return(
-            <Segment style={{ background: '#000', height: '150px' }} attached='bottom'>
-                <Grid columns={2}>
-                    <Grid.Column largeScreen={15}>
-                        <Text as='h1' inverted>Footer</Text>
-                    </Grid.Column>
-                    <Grid.Column largeScreen={1} >
-                        
+            <Segment style={{ background: '#000', height: '200px' }} attached='bottom'>
+                <Grid>
+                    <Grid.Column largeScreen={16}>
+                        <Header as='h1' inverted>Footer</Header>
+                        <List floated='right' inverted>
+                                <List.Item>
+                                    <Header as='h4' inverted>Miguel Vladimir Torres Dávila</Header>
+                                </List.Item>
+                                <List.Item>
+                                    <Header as='h4' inverted>
+                                        <Header.Content>
+                                            <Icon name='phone'/>
+                                            +52 499-103-6055
+                                        </Header.Content>
+                                    </Header>
+                                </List.Item>
+                                <List.Item>
+                                    <Header as='h4' inverted>
+                                        <Header.Content>
+                                            <Icon name='mail'/> vladimir.tordavi@gmail.com  
+                                        </Header.Content>
+                                    </Header>
+                                </List.Item>
+                                <List.Item>
+                                    <Button icon='instagram' onClick={() => window.open('https://www.instagram.com/miro_torres/', '_blank')}/>
+                                    <Button icon='facebook' onClick={() => window.open('https://www.facebook.com/MVTorresD/', '_blank')}/>
+                                </List.Item>
+                        </List>
                     </Grid.Column>
                 </Grid>
             </Segment>

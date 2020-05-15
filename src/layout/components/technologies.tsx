@@ -58,8 +58,8 @@ class Techs extends React.Component<IHeaderProps, IHeaderState>{
             dots: true,
             infinite: true,
             speed: 500,
-            slidesToShow: 4,
-            slidesToScroll: 2,
+            slidesToShow: 3,
+            slidesToScroll: 1,
             arrows: true,
             autoplay: true,
             autoplaySpeed: 1500
@@ -167,7 +167,7 @@ class Techs extends React.Component<IHeaderProps, IHeaderState>{
                     <Card>
                         <Image  style={{ width: '350px', height: '350pxpx'}} centered src={require('../../assets/images/git.jpg')} />
                         <Card.Content>
-                            <Card.Header>Versionement Controll</Card.Header>
+                            <Card.Header>Git</Card.Header>
                             <Card.Meta>Joined in October 2019</Card.Meta>
                         </Card.Content>
                         <Card.Content centered>
