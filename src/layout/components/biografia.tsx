@@ -15,10 +15,14 @@ function Biografia() {
                             <Header as='h2' icon textAlign='center' dividing>
                                 <Header.Content>
                                     <Icon name='user' circular />
-                                        Resume Objective
+                                        Resume
                                 </Header.Content>
                             </Header>
                             <Container text>
+                                <p style={{ textAlign: 'left'}}>
+                                    Name: Miguel Vladimir Torres Dávila<pre/>
+                                    Birthday: 10/Dec/1994
+                                </p>
                                 <p>
                                     Aquí va mi biografía ..................................................
                                     ........................................................................

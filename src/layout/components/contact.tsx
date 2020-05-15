@@ -132,7 +132,7 @@ class Contact extends React.Component<IHeaderProps, IHeaderState>{
                                     Info
                                 </Header.Content>
                             </Header>
-                            <List style={{ marginLeft: '70%', marginTop: '18%'}}>
+                            <List style={{ marginTop: '10%'}}>
                                 <List.Item>
                                     Miguel Vladimir Torres Dávila
                                 </List.Item>

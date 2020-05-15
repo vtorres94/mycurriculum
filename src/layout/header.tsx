@@ -66,10 +66,10 @@ class Header extends React.Component<IHeaderProps, IHeaderState>{
                 <Grid>
                     <Grid.Column largeScreen={16}>
                         <Button attached='top' floated='right' basic size='big' icon='server big' inverted color={this.state.color} onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })}/>
-                        <Text style={{ marginLeft: '50px' }} as='h1' inverted color={this.state.color}>
+                        <Text style={{ marginTop: '5%' }} as='h1' inverted color={this.state.color}>
                             <Text.Content>
-                                Vladimir Torres
-                                <Text.Subheader>D E V E L O P E R</Text.Subheader>
+                                {"V L A D I M I R \xa0\xa0 T O R R E S"}
+                                <Text.Subheader>{"D\xa0 E\xa0 V\xa0 E\xa0 L\xa0 O\xa0 P\xa0 E\xa0 R"}</Text.Subheader>
                             </Text.Content>
                         </Text>
                     </Grid.Column>
