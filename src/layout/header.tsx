@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Button, Segment, Grid, Header as Text, Responsive } from 'semantic-ui-react';
+import { Icon, Button, Segment, Grid, Header as Text, Responsive, Container } from 'semantic-ui-react';
 
 export interface IHeaderProps { }
 
@@ -54,23 +54,28 @@ class Header extends React.Component<IHeaderProps, IHeaderState>{
     }
     render() {
         return (
-            <Segment.Group
-                style={{
-                    backgroundImage: `url(${require('../assets/images/city.jpg')})`,
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat',
-                    height: '300px'
-                }}
-                attached='top'>
-                <Button attached='top' floated='right' basic size='big' icon='server big' inverted color={this.state.color} onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })} />
-                <Responsive>
-                    <Text style={{ marginTop: '5%' }} as='h1' inverted color={this.state.color}>
-                        <Text.Content style={{ position: 'relative' }}>
-                            {"V L A D I M I R \xa0\xa0 T O R R E S"}
-                            <Text.Subheader>{"D\xa0 E\xa0 V\xa0 E\xa0 L\xa0 O\xa0 P\xa0 E\xa0 R"}</Text.Subheader>
-                        </Text.Content>
-                    </Text>
+            <Segment.Group attached='top' >
+                <Responsive 
+                    as={Segment}
+                    style={{
+                        backgroundImage: `url(${require('../assets/images/city.jpg')})`,
+                        backgroundPosition: 'center',
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat',
+                        height: '300px',
+                    }}
+                >
+                    <Grid >
+                        <Grid.Column style={{ height: '300px' }} largeScreen='16'>
+                            <Button attached='top' floated='right' basic size='big' icon='server big' inverted color={this.state.color} onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })} />
+                            <Text style={{ marginTop: '100px' }} className='CenterText' as='h1' inverted color={this.state.color}>
+                                <Text.Content >
+                                    {"V L A D I M I R \xa0\xa0 T O R R E S"}
+                                    <Text.Subheader>{"D\xa0 E\xa0 V\xa0 E\xa0 L\xa0 O\xa0 P\xa0 E\xa0 R"}</Text.Subheader>
+                                </Text.Content>
+                            </Text>
+                        </Grid.Column>
+                    </Grid>
                 </Responsive>
             </Segment.Group>
         );
