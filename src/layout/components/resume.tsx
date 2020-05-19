@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Segment, Grid, Header, Image, Container, Responsive } from 'semantic-ui-react';
+import { Icon, Segment, Grid, Header, Image, TextArea, Responsive } from 'semantic-ui-react';
 
 export interface IHeaderProps{}
 
@@ -62,28 +62,26 @@ class Resume extends React.Component<IHeaderProps, IHeaderState>{
                             Resume
                         </Header.Content>
                     </Header>
-                    <p style={{ textAlign: 'left' }}>
-                        Name: Miguel Vladimir Torres Dávila<pre />
-                        Birthday: 10/Dec/1994
-                    </p>
-                    <Container text>
+                    
+                    <Grid columns={2}>
+                        <Grid.Column largeScreen={8} textAlign='center'>
+                            <p>
+                                Name: Miguel Vladimir Torres Dávila<pre />
+                                Birthday: 10/Dec/1994
+                            </p>
+                        </Grid.Column>
+                        <Grid.Column largeScreen={8} textAlign='center'>
+                            <p>
+                                Name: Miguel Vladimir Torres Dávila<pre />
+                                Birthday: 10/Dec/1994
+                            </p>
+                        </Grid.Column>
+                    </Grid>
                         <p>
-                            Aquí va mi biografía ..................................................
-                            ........................................................................
-                            ........................................................................
-                            ........................................................................
-                            ........................................................................
-                            ........................................................................
-                            ........................................................................
-                            ........................................................................
-                            ........................................................................
-                            ........................................................................
-                            ........................................................................
-                            ........................................................................
-                            ........................................................................
+                            Ho
+                            ........................................................................<br/>
                             ........................................................... bla bla bla
                         </p>
-                    </Container>
                 </Responsive>
             </Segment.Group>
         );

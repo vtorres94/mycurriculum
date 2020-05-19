@@ -65,17 +65,23 @@ class Header extends React.Component<IHeaderProps, IHeaderState>{
                         height: '300px',
                     }}
                 >
-                    <Grid >
+                    
+                    <Button attached='top' floated='right' basic size='big' icon='server big' inverted color={this.state.color} onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })} />
+                    <Text style={{ marginTop: '100px' }} size='huge' inverted color={this.state.color}>
+                        {"V L A D I M I R \xa0\xa0T O R R E S"}
+                        <Text.Subheader>{"D\xa0 E\xa0 V\xa0 E\xa0 L\xa0 O\xa0 P\xa0 E\xa0 R"}</Text.Subheader>
+                    </Text>
+                    {/* <Grid >
                         <Grid.Column style={{ height: '300px' }} largeScreen='16'>
                             <Button attached='top' floated='right' basic size='big' icon='server big' inverted color={this.state.color} onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })} />
-                            <Text style={{ marginTop: '100px' }} className='CenterText' as='h1' inverted color={this.state.color}>
+                            <Text style={{ marginTop: '100px' }} as='h2' inverted color={this.state.color} responsive>
                                 <Text.Content >
                                     {"V L A D I M I R \xa0\xa0 T O R R E S"}
                                     <Text.Subheader>{"D\xa0 E\xa0 V\xa0 E\xa0 L\xa0 O\xa0 P\xa0 E\xa0 R"}</Text.Subheader>
                                 </Text.Content>
                             </Text>
                         </Grid.Column>
-                    </Grid>
+                    </Grid> */}
                 </Responsive>
             </Segment.Group>
         );
