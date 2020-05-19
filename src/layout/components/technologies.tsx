@@ -75,7 +75,7 @@ class Techs extends React.Component<IHeaderProps, IHeaderState>{
                 </Header>
                 <Slider {...settings}>
                     <Card>
-                        <Image style={{ width: '350px', height: '350px'}} centered src={require('../../assets/images/java-logo.png')} />
+                        <Image centered src={require('../../assets/images/java-logo.png')} />
                         <Card.Content>
                             <Card.Header>JAVA</Card.Header>
                             <Card.Meta>Joined in 2018</Card.Meta>
@@ -85,7 +85,7 @@ class Techs extends React.Component<IHeaderProps, IHeaderState>{
                         </Card.Content>
                     </Card>
                     <Card>
-                        <Image style={{ width: '350px', height: '350px'}} centered src={require('../../assets/images/html.jpg')} />
+                        <Image centered src={require('../../assets/images/html.jpg')} />
                         <Card.Content>
                             <Card.Header>HTML5</Card.Header>
                             <Card.Meta>Joined in 2018</Card.Meta>
@@ -95,7 +95,7 @@ class Techs extends React.Component<IHeaderProps, IHeaderState>{
                         </Card.Content>
                     </Card>
                     <Card>
-                        <Image  style={{ width: '350px', height: '350pxpx'}} centered src={require('../../assets/images/css.jpg')} />
+                        <Image centered src={require('../../assets/images/css.jpg')} />
                         <Card.Content>
                             <Card.Header>CSS</Card.Header>
                             <Card.Meta>Joined in 2018</Card.Meta>
@@ -105,7 +105,7 @@ class Techs extends React.Component<IHeaderProps, IHeaderState>{
                         </Card.Content>
                     </Card>
                     <Card>
-                        <Image style={{ width: '350px', height: '350px'}} centered src={require('../../assets/images/php.jpg')} />
+                        <Image centered src={require('../../assets/images/php.jpg')} />
                         <Card.Content>
                             <Card.Header>PHP</Card.Header>
                             <Card.Meta>Joined in October 2018</Card.Meta>
@@ -115,7 +115,7 @@ class Techs extends React.Component<IHeaderProps, IHeaderState>{
                         </Card.Content>
                     </Card>
                     <Card>
-                        <Image style={{ width: '350px', height: '350px'}} centered src={require('../../assets/images/js.png')} />
+                        <Image centered src={require('../../assets/images/js.png')} />
                         <Card.Content>
                             <Card.Header>Javascript</Card.Header>
                             <Card.Meta>Joined in October 2019</Card.Meta>
@@ -125,7 +125,7 @@ class Techs extends React.Component<IHeaderProps, IHeaderState>{
                         </Card.Content>
                     </Card>
                     <Card>
-                        <Image style={{ width: '350px', height: '350px'}} centered src={require('../../assets/images/react.jpg')} />
+                        <Image centered src={require('../../assets/images/react.jpg')} />
                         <Card.Content>
                             <Card.Header>React</Card.Header>
                             <Card.Meta>Joined in October 2019</Card.Meta>
@@ -135,7 +135,7 @@ class Techs extends React.Component<IHeaderProps, IHeaderState>{
                         </Card.Content>
                     </Card>
                     <Card>
-                        <Image style={{ width: '350px', height: '350px'}} centered src={require('../../assets/images/redux.png')} />
+                        <Image centered src={require('../../assets/images/redux.png')} />
                         <Card.Content>
                             <Card.Header>Redux</Card.Header>
                             <Card.Meta>Joined in October 2019</Card.Meta>
@@ -145,7 +145,7 @@ class Techs extends React.Component<IHeaderProps, IHeaderState>{
                         </Card.Content>
                     </Card>
                     <Card>
-                        <Image  style={{ width: '350px', height: '350pxpx'}} centered src={require('../../assets/images/hipster.jpeg')} />
+                        <Image centered src={require('../../assets/images/hipster.jpeg')} />
                         <Card.Content>
                             <Card.Header>Java Hipster</Card.Header>
                             <Card.Meta>Joined in October 2019</Card.Meta>
@@ -155,7 +155,7 @@ class Techs extends React.Component<IHeaderProps, IHeaderState>{
                         </Card.Content>
                     </Card>
                     <Card>
-                        <Image style={{ width: '350px', height: '350px'}} centered src={require('../../assets/images/jasper.png')} />
+                        <Image centered src={require('../../assets/images/jasper.png')} />
                         <Card.Content>
                             <Card.Header>Jaspersoft</Card.Header>
                             <Card.Meta>Joined in January 2020</Card.Meta>
@@ -165,7 +165,7 @@ class Techs extends React.Component<IHeaderProps, IHeaderState>{
                         </Card.Content>
                     </Card>
                     <Card>
-                        <Image  style={{ width: '350px', height: '350pxpx'}} centered src={require('../../assets/images/git.jpg')} />
+                        <Image centered src={require('../../assets/images/git.jpg')} />
                         <Card.Content>
                             <Card.Header>Git</Card.Header>
                             <Card.Meta>Joined in October 2019</Card.Meta>

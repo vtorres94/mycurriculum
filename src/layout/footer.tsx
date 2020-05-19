@@ -10,7 +10,7 @@ class Footer extends React.Component<IFooterProps, IFooterState>{
     constructor(props: IFooterProps) {
         super(props);
         this.state = {
-
+            
         }
     }
     render() {
