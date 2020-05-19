@@ -67,114 +67,124 @@ class Techs extends React.Component<IHeaderProps, IHeaderState>{
         return (
             <Segment.Group style={{ background: '#fff', marginLeft: '10%', marginRight: '10%' }}>
                 <Responsive as={Segment}>
-                <Header as='h2' icon textAlign='center' dividing color={this.state.color}>
-                    <Header.Content >
-                        <Icon name='code' circular onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })}/>
-                        Skills
-                    </Header.Content>
-                </Header>
-                <Slider {...settings}>
-                    <Card>
-                        <Image centered src={require('../../assets/images/java-logo.png')} />
-                        <Card.Content>
-                            <Card.Header>JAVA</Card.Header>
-                            <Card.Meta>Joined in 2018</Card.Meta>
-                        </Card.Content>
-                        <Card.Content centered>
-                            <Rating icon='star' defaultRating={4} maxRating={5} disabled />
-                        </Card.Content>
-                    </Card>
-                    <Card>
-                        <Image centered src={require('../../assets/images/html.jpg')} />
-                        <Card.Content>
-                            <Card.Header>HTML5</Card.Header>
-                            <Card.Meta>Joined in 2018</Card.Meta>
-                        </Card.Content>
-                        <Card.Content centered>
-                            <Rating icon='star' defaultRating={4} maxRating={5} disabled />
-                        </Card.Content>
-                    </Card>
-                    <Card>
-                        <Image centered src={require('../../assets/images/css.jpg')} />
-                        <Card.Content>
-                            <Card.Header>CSS</Card.Header>
-                            <Card.Meta>Joined in 2018</Card.Meta>
-                        </Card.Content>
-                        <Card.Content centered>
-                            <Rating icon='star' defaultRating={3} maxRating={5} disabled />
-                        </Card.Content>
-                    </Card>
-                    <Card>
-                        <Image centered src={require('../../assets/images/php.jpg')} />
-                        <Card.Content>
-                            <Card.Header>PHP</Card.Header>
-                            <Card.Meta>Joined in October 2018</Card.Meta>
-                        </Card.Content>
-                        <Card.Content centered>
-                            <Rating icon='star' defaultRating={3} maxRating={5} disabled />
-                        </Card.Content>
-                    </Card>
-                    <Card>
-                        <Image centered src={require('../../assets/images/js.png')} />
-                        <Card.Content>
-                            <Card.Header>Javascript</Card.Header>
-                            <Card.Meta>Joined in October 2019</Card.Meta>
-                        </Card.Content>
-                        <Card.Content centered>
-                            <Rating icon='star' defaultRating={3} maxRating={5} disabled />
-                        </Card.Content>
-                    </Card>
-                    <Card>
-                        <Image centered src={require('../../assets/images/react.jpg')} />
-                        <Card.Content>
-                            <Card.Header>React</Card.Header>
-                            <Card.Meta>Joined in October 2019</Card.Meta>
-                        </Card.Content>
-                        <Card.Content centered>
-                            <Rating icon='star' defaultRating={3} maxRating={5} disabled />
-                        </Card.Content>
-                    </Card>
-                    <Card>
-                        <Image centered src={require('../../assets/images/redux.png')} />
-                        <Card.Content>
-                            <Card.Header>Redux</Card.Header>
-                            <Card.Meta>Joined in October 2019</Card.Meta>
-                        </Card.Content>
-                        <Card.Content centered>
-                            <Rating icon='star' defaultRating={3} maxRating={5} disabled />
-                        </Card.Content>
-                    </Card>
-                    <Card>
-                        <Image centered src={require('../../assets/images/hipster.jpeg')} />
-                        <Card.Content>
-                            <Card.Header>Java Hipster</Card.Header>
-                            <Card.Meta>Joined in October 2019</Card.Meta>
-                        </Card.Content>
-                        <Card.Content centered>
-                            <Rating icon='star' defaultRating={3} maxRating={5} disabled />
-                        </Card.Content>
-                    </Card>
-                    <Card>
-                        <Image centered src={require('../../assets/images/jasper.png')} />
-                        <Card.Content>
-                            <Card.Header>Jaspersoft</Card.Header>
-                            <Card.Meta>Joined in January 2020</Card.Meta>
-                        </Card.Content>
-                        <Card.Content centered>
-                            <Rating icon='star' defaultRating={2} maxRating={5} disabled />
-                        </Card.Content>
-                    </Card>
-                    <Card>
-                        <Image centered src={require('../../assets/images/git.jpg')} />
-                        <Card.Content>
-                            <Card.Header>Git</Card.Header>
-                            <Card.Meta>Joined in October 2019</Card.Meta>
-                        </Card.Content>
-                        <Card.Content centered>
-                            <Rating icon='star' defaultRating={3} maxRating={5} disabled />
-                        </Card.Content>
-                    </Card>
-                </Slider>
+                    <Header as='h2' icon textAlign='center' dividing color={this.state.color}>
+                        <Header.Content >
+                            <Icon name='code' circular onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })}/>
+                            Skills
+                        </Header.Content>
+                    </Header>
+                    <Slider {...settings}>
+                        <Card>
+                            <Image centered src={require('../../assets/images/java-logo.png')} />
+                            <Card.Content>
+                                <Card.Header>JAVA</Card.Header>
+                                <Card.Meta>Joined in 2018</Card.Meta>
+                            </Card.Content>
+                            <Card.Content centered>
+                                <Rating icon='star' defaultRating={4} maxRating={5} disabled />
+                            </Card.Content>
+                        </Card>
+                        <Card>
+                            <Image centered src={require('../../assets/images/html.jpg')} />
+                            <Card.Content>
+                                <Card.Header>HTML5</Card.Header>
+                                <Card.Meta>Joined in 2018</Card.Meta>
+                            </Card.Content>
+                            <Card.Content centered>
+                                <Rating icon='star' defaultRating={4} maxRating={5} disabled />
+                            </Card.Content>
+                        </Card>
+                        <Card>
+                            <Image centered src={require('../../assets/images/css.jpg')} />
+                            <Card.Content>
+                                <Card.Header>CSS</Card.Header>
+                                <Card.Meta>Joined in 2018</Card.Meta>
+                            </Card.Content>
+                            <Card.Content centered>
+                                <Rating icon='star' defaultRating={3} maxRating={5} disabled />
+                            </Card.Content>
+                        </Card>
+                        <Card>
+                            <Image centered src={require('../../assets/images/php.jpg')} />
+                            <Card.Content>
+                                <Card.Header>PHP</Card.Header>
+                                <Card.Meta>Joined in October 2018</Card.Meta>
+                            </Card.Content>
+                            <Card.Content centered>
+                                <Rating icon='star' defaultRating={3} maxRating={5} disabled />
+                            </Card.Content>
+                        </Card>
+                        <Card>
+                            <Image centered src={require('../../assets/images/js.png')} />
+                            <Card.Content>
+                                <Card.Header>Javascript</Card.Header>
+                                <Card.Meta>Joined in October 2019</Card.Meta>
+                            </Card.Content>
+                            <Card.Content centered>
+                                <Rating icon='star' defaultRating={3} maxRating={5} disabled />
+                            </Card.Content>
+                        </Card>
+                        <Card>
+                            <Image centered src={require('../../assets/images/react.jpg')} />
+                            <Card.Content>
+                                <Card.Header>React</Card.Header>
+                                <Card.Meta>Joined in October 2019</Card.Meta>
+                            </Card.Content>
+                            <Card.Content centered>
+                                <Rating icon='star' defaultRating={3} maxRating={5} disabled />
+                            </Card.Content>
+                        </Card>
+                        <Card>
+                            <Image centered src={require('../../assets/images/redux.png')} />
+                            <Card.Content>
+                                <Card.Header>Redux</Card.Header>
+                                <Card.Meta>Joined in October 2019</Card.Meta>
+                            </Card.Content>
+                            <Card.Content centered>
+                                <Rating icon='star' defaultRating={3} maxRating={5} disabled />
+                            </Card.Content>
+                        </Card>
+                        <Card>
+                            <Image centered src={require('../../assets/images/node.jpg')} />
+                            <Card.Content>
+                                <Card.Header>NodeJs</Card.Header>
+                                <Card.Meta>Joined in October 2019</Card.Meta>
+                            </Card.Content>
+                            <Card.Content centered>
+                                <Rating icon='star' defaultRating={2.5} maxRating={5} disabled />
+                            </Card.Content>
+                        </Card>
+                        <Card>
+                            <Image centered src={require('../../assets/images/hipster.jpeg')} />
+                            <Card.Content>
+                                <Card.Header>Java Hipster</Card.Header>
+                                <Card.Meta>Joined in October 2019</Card.Meta>
+                            </Card.Content>
+                            <Card.Content centered>
+                                <Rating icon='star' defaultRating={3} maxRating={5} disabled />
+                            </Card.Content>
+                        </Card>
+                        <Card>
+                            <Image centered src={require('../../assets/images/jasper.png')} />
+                            <Card.Content>
+                                <Card.Header>Jaspersoft</Card.Header>
+                                <Card.Meta>Joined in January 2020</Card.Meta>
+                            </Card.Content>
+                            <Card.Content centered>
+                                <Rating icon='star' defaultRating={2} maxRating={5} disabled />
+                            </Card.Content>
+                        </Card>
+                        <Card>
+                            <Image centered src={require('../../assets/images/git.jpg')} />
+                            <Card.Content>
+                                <Card.Header>Git</Card.Header>
+                                <Card.Meta>Joined in October 2019</Card.Meta>
+                            </Card.Content>
+                            <Card.Content centered>
+                                <Rating icon='star' defaultRating={3} maxRating={5} disabled />
+                            </Card.Content>
+                        </Card>
+                    </Slider>
                 </Responsive>
             </Segment.Group>
         );

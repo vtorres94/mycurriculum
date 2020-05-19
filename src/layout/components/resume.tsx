@@ -67,20 +67,24 @@ class Resume extends React.Component<IHeaderProps, IHeaderState>{
                         <Grid.Column largeScreen={8} textAlign='center'>
                             <p>
                                 Name: Miguel Vladimir Torres Dávila<pre />
-                                Birthday: 10/Dec/1994
+                                Birthday: 10/Dec/1994<pre />
+                                Super power: Convertir café en código<pre />
                             </p>
                         </Grid.Column>
                         <Grid.Column largeScreen={8} textAlign='center'>
                             <p>
-                                Name: Miguel Vladimir Torres Dávila<pre />
-                                Birthday: 10/Dec/1994
+                                Country: México<pre />
+                                State: Zacatecas<pre />
+                                City: Villanueva<pre />
                             </p>
                         </Grid.Column>
                     </Grid>
                         <p>
-                            Ho
-                            ........................................................................<br/>
-                            ........................................................... bla bla bla
+                            <pre />
+                            Hola! estoy en camino a ser un desarrollador full stack, empecé en ambientes profesionales a mediados del 2019<br/>
+                            y e estado desarrollando mis habilidades desde entonces, soy un fiel creyente del conociento oblicuo y el autodidactismo <br/>
+                            por eso valoro mucho el conocimiento que pueda dejarme cualquier persona o proyecto, te dejo este espacio para que conozcas algo de mi formación y<br/>
+                            si tienes algo que aportarme por favor mandame un mensaje! 
                         </p>
                 </Responsive>
             </Segment.Group>
