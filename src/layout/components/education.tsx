@@ -74,7 +74,7 @@ class Education extends React.Component<IEducationProps, IEducationState>{
                     <Header as='h2' icon textAlign='center' dividing color={this.state.color}>
                         <Header.Content>
                             <Icon name='usb' circular onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })}/>
-                            {this.props.language ? "Estudios" : "Estudy"}
+                            {this.props.language ? "Estudios" : "Studies"}
                         </Header.Content>
                     </Header>
                     <Transition.Group>
