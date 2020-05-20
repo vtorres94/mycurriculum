@@ -1,15 +1,17 @@
 import React from 'react';
-import { Icon, Segment, Grid, Header, Image, TextArea, Responsive } from 'semantic-ui-react';
+import { Icon, Segment, Grid, Header, Responsive, Button } from 'semantic-ui-react';
 
-export interface IHeaderProps{}
+export interface IResumeProps {
+    language: boolean;
+}
 
-export interface IHeaderState{
+export interface IResumeState {
     color: "blue" | "black" | "brown" | "green" | "grey" | "olive" | "orange" | "pink" | "purple" | "red" | "teal" | "violet" | "yellow" | undefined;
     mainFocus: boolean;
 }
 
-class Resume extends React.Component<IHeaderProps, IHeaderState>{
-    constructor(props: IHeaderProps){
+class Resume extends React.Component<IResumeProps, IResumeState>{
+    constructor(props: IResumeProps) {
         super(props);
         this.state = {
             color: 'black',
@@ -18,34 +20,34 @@ class Resume extends React.Component<IHeaderProps, IHeaderState>{
     }
     handleInterval(interval: number) {
         console.log('focus' + this.state.mainFocus);
-        for(let i=0; i<6; i++){
-            switch(i) {
-                case 0 :
-                    setTimeout(() => this.setState({ color: 'black'}), 0);
-                break;
-                case 1 :
-                    setTimeout(() => this.setState({ color: 'teal'}), 500);
-                break;
-                case 2 :
-                    setTimeout(() => this.setState({ color: 'green'}), 1000);
-                break;
-                case 3 :
-                    setTimeout(() => this.setState({ color: 'yellow'}), 1500);
-                break;
-                case 4 :
-                    setTimeout(() => this.setState({ color: 'purple'}), 2000);
-                break;
-                case 5 :
-                    setTimeout(() => this.setState({ color: 'blue'}), 2500);
-                break;
+        for (let i = 0; i < 6; i++) {
+            switch (i) {
+                case 0:
+                    setTimeout(() => this.setState({ color: 'black' }), 0);
+                    break;
+                case 1:
+                    setTimeout(() => this.setState({ color: 'teal' }), 500);
+                    break;
+                case 2:
+                    setTimeout(() => this.setState({ color: 'green' }), 1000);
+                    break;
+                case 3:
+                    setTimeout(() => this.setState({ color: 'yellow' }), 1500);
+                    break;
+                case 4:
+                    setTimeout(() => this.setState({ color: 'purple' }), 2000);
+                    break;
+                case 5:
+                    setTimeout(() => this.setState({ color: 'blue' }), 2500);
+                    break;
             }
-            if(!this.state.mainFocus) {
+            if (!this.state.mainFocus) {
                 console.log('se va a detener!')
                 clearInterval(interval);
                 break;
             }
         }
-        
+
     }
     changeColor = async () => {
         await this.setState({ mainFocus: true });
@@ -58,34 +60,60 @@ class Resume extends React.Component<IHeaderProps, IHeaderState>{
                 <Responsive as={Segment} >
                     <Header as='h2' icon textAlign='center' dividing color={this.state.color}>
                         <Header.Content>
-                            <Icon name='user' circular onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })}/>
-                            Resume
+                            <Icon name='user' circular onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })} />
+                            {this.props.language ? "Perfil" : "Resume"}
                         </Header.Content>
                     </Header>
-                    
+
                     <Grid columns={2}>
                         <Grid.Column largeScreen={8} textAlign='center'>
-                            <p>
-                                Name: Miguel Vladimir Torres Dávila<pre />
-                                Birthday: 10/Dec/1994<pre />
-                                Super power: Convertir café en código<pre />
-                            </p>
+                            {this.props.language ?
+                                <Header as='h4'>
+                                    Nombre: Miguel Vladimir Torres Dávila<pre />
+                                    Fecha Nacimiento: 10/Dic/1994<pre />
+                                    Super poder: Convertir café en código<pre />
+                                </Header>
+                                :
+                                <Header as='h4'>
+                                    Name: Miguel Vladimir Torres Dávila<pre />
+                                    Birthday: 10/Dec/1994<pre />
+                                    Super power: Convert coffee on code<pre />
+                                </Header>
+                            }
                         </Grid.Column>
                         <Grid.Column largeScreen={8} textAlign='center'>
-                            <p>
-                                Country: México<pre />
-                                State: Zacatecas<pre />
-                                City: Villanueva<pre />
-                            </p>
+                            {this.props.language ?
+                                <Header as='h4'>
+                                    País: México<pre />
+                                    Estado: Zacatecas<pre />
+                                    Municipio: Villanueva<pre />
+                                    Ingles: Básico
+                                </Header>
+                                :
+                                <Header as='h4'>
+                                    Country: México<pre />
+                                    State: Zacatecas<pre />
+                                    City: Villanueva<pre />
+                                    English: Just
+                                </Header>
+                            }
                         </Grid.Column>
                     </Grid>
-                        <p>
-                            <pre />
-                            Hola! estoy en camino a ser un desarrollador full stack, empecé en ambientes profesionales a mediados del 2019<br/>
-                            y e estado desarrollando mis habilidades desde entonces, soy un fiel creyente del conociento oblicuo y el autodidactismo <br/>
-                            por eso valoro mucho el conocimiento que pueda dejarme cualquier persona o proyecto, te dejo este espacio para que conozcas algo de mi formación y<br/>
-                            si tienes algo que aportarme por favor mandame un mensaje! 
-                        </p>
+                    {this.props.language ?
+                        <Header>
+                            Hola! estoy en camino a ser un desarrollador full stack, empecé en ambientes profesionales a mediados del 2019<br />
+                            y e estado desarrollando mis habilidades desde entonces, soy un fiel creyente del conociento oblicuo y el autodidactismo <br />
+                            por eso valoro mucho el conocimiento que pueda dejarme cualquier persona o proyecto, te dejo este espacio para que conozcas algo de mi formación y<br />
+                            si tienes algo que aportarme por favor mandame un mensaje!
+                        </Header>
+                        :
+                        <Header>
+                            The same but en english xD
+                        </Header>
+                    }
+                    <Button attached='bottom' >
+                        {this.props.language ? "Descargar PDF" : "Download PDF"}
+                    </Button>
                 </Responsive>
             </Segment.Group>
         );

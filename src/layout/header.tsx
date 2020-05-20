@@ -1,7 +1,9 @@
 import React from 'react';
 import { Icon, Button, Segment, Grid, Header as Text, Responsive, Container } from 'semantic-ui-react';
 
-export interface IHeaderProps { }
+export interface IHeaderProps { 
+    handleLanguage: () => any
+}
 
 export interface IHeaderState {
     color: "blue" | "black" | "brown" | "green" | "grey" | "olive" | "orange" | "pink" | "purple" | "red" | "teal" | "violet" | "yellow" | undefined;
@@ -65,7 +67,7 @@ class Header extends React.Component<IHeaderProps, IHeaderState>{
                         height: '300px',
                     }}
                 >
-                    <Button attached='top' floated='right' basic size='big' icon='server big' inverted color={this.state.color} onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })} />
+                    <Button attached='top' floated='right' basic size='massive' icon='language' inverted color={this.state.color} onClick={this.props.handleLanguage} onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })} />
                     <Text style={{ marginTop: '100px' }} size='huge' inverted color={this.state.color}>
                         {"V L A D I M I R \xa0\xa0T O R R E S"}
                         <Text.Subheader>{"D\xa0 E\xa0 V\xa0 E\xa0 L\xa0 O\xa0 P\xa0 E\xa0 R"}</Text.Subheader>

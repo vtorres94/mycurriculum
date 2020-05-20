@@ -1,7 +1,10 @@
 import React from 'react';
 import { Icon, Segment, Grid, Header, Image, List, Responsive, TransitionablePortal, Item, Transition } from 'semantic-ui-react';
 
-export interface IEducationProps{}
+export interface IEducationProps{
+    language: boolean;
+    scroll: number;
+}
 
 export interface IEducationState{
     color: "blue" | "black" | "brown" | "green" | "grey" | "olive" | "orange" | "pink" | "purple" | "red" | "teal" | "violet" | "yellow" | undefined;
@@ -18,6 +21,13 @@ class Education extends React.Component<IEducationProps, IEducationState>{
             mainFocus: false,
             duration : 1000,
             visible: true
+        }
+    }
+    componentDidUpdate(prevProps){
+        console.log('ESTUDIOS SCROLL : ' + this.props.scroll)
+
+        if(this.props.scroll !== prevProps.scroll){
+            console.log('ESTUDIOS SCROLL : ' + this.props.scroll)
         }
     }
     handleInterval(interval: number) {
@@ -52,7 +62,7 @@ class Education extends React.Component<IEducationProps, IEducationState>{
         
     }
     changeColor = async () => {
-        await this.setState({ mainFocus: true });
+        await this.setState({ mainFocus: true, visible: true });
         this.handleInterval(1);
         var interval: any = setInterval(() => this.handleInterval(interval), 3000);
     }
@@ -64,11 +74,11 @@ class Education extends React.Component<IEducationProps, IEducationState>{
                     <Header as='h2' icon textAlign='center' dividing color={this.state.color}>
                         <Header.Content>
                             <Icon name='usb' circular onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })}/>
-                            Education
+                            {this.props.language ? "Estudios" : "Estudy"}
                         </Header.Content>
                     </Header>
                     <Transition.Group>
-                        <Item.Group onEnered={() => this.setState({ visible: true })}>
+                        <Item.Group divided>
                             <Transition animation='browse' duration={duration} visible={visible} >
                                 <Item>
                                     <Item.Content>
@@ -81,8 +91,10 @@ class Education extends React.Component<IEducationProps, IEducationState>{
                                     </Item.Content>
                                 </Item>
                             </Transition>
-                            <Item>
+                            <Transition animation='browse' duration={duration} visible={visible} >
+                            <Item >
                                 <Item.Content>
+                                    <Item.Image src={require('../../assets/images/UAZ.jpg')} size='tiny'/>
                                     <Item.Header>Universidad Autonoma de Zacatecas</Item.Header>
                                     <Item.Meta>2013 - 2015</Item.Meta>
                                     <Item.Description>
@@ -91,16 +103,20 @@ class Education extends React.Component<IEducationProps, IEducationState>{
                                     <Item.Extra>Inconcluída</Item.Extra>
                                 </Item.Content>
                             </Item>
+                            </Transition>
+                            <Transition animation='browse' duration={duration} visible={visible} >
                             <Item>
                                 <Item.Content>
+                                    <Item.Image src={require('../../assets/images/logotec.png')} size='tiny'/>
                                     <Item.Header>Instituto Tecnológico Superior de Jerez</Item.Header>
                                     <Item.Meta>2017 - Actualidad</Item.Meta>
                                     <Item.Description>
                                         Ingeniería en Sistemas Computacionales
                                     </Item.Description>
-                                    <Item.Extra>Sabatino</Item.Extra>
+                                    <Item.Extra>Sabático</Item.Extra>
                                 </Item.Content>
                             </Item>
+                            </Transition>
                         </Item.Group>
                     </Transition.Group>
                 </Responsive>

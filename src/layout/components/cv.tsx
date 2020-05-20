@@ -1,7 +1,9 @@
 import React from 'react';
 import { Icon, Segment, Grid, Header, Image, List, Responsive } from 'semantic-ui-react';
 
-export interface IHeaderProps{}
+export interface IHeaderProps{
+    language: boolean;
+}
 
 export interface IHeaderState{
     color: "blue" | "black" | "brown" | "green" | "grey" | "olive" | "orange" | "pink" | "purple" | "red" | "teal" | "violet" | "yellow" | undefined;

@@ -77,7 +77,7 @@ class Techs extends React.Component<IHeaderProps, IHeaderState>{
                         <Card>
                             <Image centered src={require('../../assets/images/java-logo.png')} />
                             <Card.Content>
-                                <Card.Header>JAVA</Card.Header>
+                                <Card.Header>Java</Card.Header>
                                 <Card.Meta>Joined in 2018</Card.Meta>
                             </Card.Content>
                             <Card.Content centered>
@@ -157,7 +157,7 @@ class Techs extends React.Component<IHeaderProps, IHeaderState>{
                         <Card>
                             <Image centered src={require('../../assets/images/hipster.jpeg')} />
                             <Card.Content>
-                                <Card.Header>Java Hipster</Card.Header>
+                                <Card.Header>JHipster</Card.Header>
                                 <Card.Meta>Joined in October 2019</Card.Meta>
                             </Card.Content>
                             <Card.Content centered>

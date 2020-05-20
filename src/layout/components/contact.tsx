@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Icon, Segment, Button, Header, Grid, List, Responsive, Input, TextArea, Form } from 'semantic-ui-react';
 import TextField from '@material-ui/core/TextField';
-export interface IHeaderProps { }
+export interface IHeaderProps {
+    language: boolean;
+}
 
 export interface IHeaderState {
     color: "blue" | "black" | "brown" | "green" | "grey" | "olive" | "orange" | "pink" | "purple" | "red" | "teal" | "violet" | "yellow" | undefined;
