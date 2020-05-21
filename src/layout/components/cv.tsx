@@ -1,21 +1,25 @@
 import React from 'react';
-import { Icon, Segment, Grid, Header, Image, List, Responsive } from 'semantic-ui-react';
+import { Icon, Segment, Header, Image, Transition, Item, Responsive } from 'semantic-ui-react';
 
-export interface IHeaderProps{
+export interface IExperienceProps{
     language: boolean;
 }
 
-export interface IHeaderState{
+export interface IExperienceState{
     color: "blue" | "black" | "brown" | "green" | "grey" | "olive" | "orange" | "pink" | "purple" | "red" | "teal" | "violet" | "yellow" | undefined;
     mainFocus: boolean;
+    duration: number;
+    visible: boolean;
 }
 
-class Experience extends React.Component<IHeaderProps, IHeaderState>{
-    constructor(props: IHeaderProps){
+class Experience extends React.Component<IExperienceProps, IExperienceState> {
+    constructor(props: IExperienceProps){
         super(props);
         this.state = {
             color: 'black',
-            mainFocus: false
+            mainFocus: false,
+            duration : 1000,
+            visible: true
         }
     }
     handleInterval(interval: number) {
@@ -55,24 +59,51 @@ class Experience extends React.Component<IHeaderProps, IHeaderState>{
         var interval: any = setInterval(() => this.handleInterval(interval), 3000);
     }
     render() {
+        const { duration, visible } = this.state
         return (
             <Segment.Group style={{ background: '#fff', marginLeft: '10%', marginRight: '10%' }}>
                 <Responsive as={Segment}>
                     <Header as='h2' icon textAlign='center' dividing color={this.state.color}>
                         <Header.Content>
                             <Icon name='usb' circular onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })}/>
-                            Experience
+                            {this.props.language? "Experiencia" : "Experience"}
                         </Header.Content>
                     </Header>
-                    <List>
-                        <List.Item>
-                            <List.Content>
-                                <List.Header>
-                                    Autodidact
-                                            </List.Header>
-                            </List.Content>
-                        </List.Item>
-                    </List>
+                    <Transition.Group>
+                        <Item.Group divided>
+                            <Transition animation='browse' duration={duration} visible={visible} >
+                                <Item>
+                                    <Item.Content>
+                                        <Item.Header>
+                                            Subdirector
+                                        </Item.Header>
+                                        <Item.Meta>2016 - 2018</Item.Meta>
+                                        <Item.Description>
+                                            <Image centered src={require('../../assets/images/logocultura.png')} size='tiny'/>
+                                            Instituto Villanovense de Cultura<br/>
+                                                "Antonio Aguilar Barraza"
+                                        </Item.Description>
+                                    </Item.Content>
+                                    <Item.Extra>Villanueva, Zac</Item.Extra>
+                                </Item>
+                            </Transition>
+                            <Transition animation='browse' duration={duration} visible={visible} >
+                                <Item>
+                                    <Item.Content>
+                                        <Item.Header>
+                                            Desarrollador Web
+                                        </Item.Header>
+                                        <Item.Meta>2019 - Actualidad</Item.Meta>
+                                        <Item.Description>
+                                            <Image centered src={require('../../assets/images/CIESOFT.png')} size='tiny'/>
+                                            CIESOFT
+                                        </Item.Description>
+                                        <Item.Extra>Zacatecas, Zac</Item.Extra>
+                                    </Item.Content>
+                                </Item>
+                            </Transition>
+                        </Item.Group>
+                    </Transition.Group>
                 </Responsive>
             </Segment.Group>
         );

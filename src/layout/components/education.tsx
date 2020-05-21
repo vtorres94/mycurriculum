@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Segment, Grid, Header, Image, List, Responsive, TransitionablePortal, Item, Transition } from 'semantic-ui-react';
+import { Icon, Segment, Header, Responsive, Item, Transition } from 'semantic-ui-react';
 
 export interface IEducationProps{
     language: boolean;
@@ -73,7 +73,7 @@ class Education extends React.Component<IEducationProps, IEducationState>{
                 <Responsive as={Segment}>
                     <Header as='h2' icon textAlign='center' dividing color={this.state.color}>
                         <Header.Content>
-                            <Icon name='usb' circular onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })}/>
+                            <Icon name='student' circular onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })}/>
                             {this.props.language ? "Estudios" : "Studies"}
                         </Header.Content>
                     </Header>

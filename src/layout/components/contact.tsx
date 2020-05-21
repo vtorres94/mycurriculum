@@ -85,14 +85,14 @@ class Contact extends React.Component<IHeaderProps, IHeaderState>{
                     <Header as='h2' icon textAlign='center' dividing color={this.state.color}>
                         <Header.Content>
                             <Icon name='mail outline' circular onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })} />
-                            Write to me
+                            {this.props.language? "Escríbeme!" : "Write to me!"}
                         </Header.Content>
                     </Header>
                     <Grid.Column>
                         <Grid columns={1}>
                             <Grid.Column>
                                 <TextField
-                                    label='E-mail'
+                                    label={this.props.language? "Correo" : "E-mail"}
                                     value={this.state.email}
                                     type='email'
                                     onChange={e => this.setState({ email: e.target.value })}
@@ -100,7 +100,7 @@ class Contact extends React.Component<IHeaderProps, IHeaderState>{
                                     style={{ width: '50%' }}
                                 />
                                 <TextField
-                                    label='Name'
+                                    label={this.props.language? "Nombre" : "Name"}
                                     value={this.state.name}
                                     type='text'
                                     onChange={e => this.setState({ name: e.target.value })}
@@ -110,7 +110,7 @@ class Contact extends React.Component<IHeaderProps, IHeaderState>{
                             </Grid.Column>
                             <Grid.Column>
                                 <TextField
-                                    label="Message"
+                                    label={this.props.language? "Mensaje" : "Message"}
                                     multiline
                                     rows={4}
                                     variant="outlined"
