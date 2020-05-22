@@ -101,14 +101,19 @@ class Resume extends React.Component<IResumeProps, IResumeState>{
                     </Grid>
                     {this.props.language ?
                         <Header>
-                            Hola! estoy en camino a ser un desarrollador full stack, empecé en ambientes profesionales a mediados del 2019<br />
-                            y e estado desarrollando mis habilidades desde entonces, soy un fiel creyente del conociento oblicuo y el autodidactismo <br />
-                            por eso valoro mucho el conocimiento que pueda dejarme cualquier persona o proyecto, te dejo este espacio para que conozcas algo de mi formación y
-                            si tienes algo que aportarme por favor mandame un mensaje!
+                            Hola! soy Desarrollador Web con 6 meses de experiencia siempre en busca del conocimiento y las buenas prácticas. <pre/>
+                            Si tienes algún proyecto interesante del cual pueda aprender por favor mándame un mensaje, me encantaría formar parte! <pre/>
+                            Actualmente crezco mis habilidades en un proyecto orientado a la salud con bastantes reglas de negocio, <br/>
+                            este proyecto está basado en microservicios usando un framework llamado JHipster que utiliza <br/>
+                            Java, JPA, Spring, Liquidbase entre otras en el backend y React en el frontend.
                         </Header>
                         :
                         <Header>
-                            The same but en english xD
+                            Hola! soy Desarrollador Web con 6 meses de experiencia siempre en busca del conocimiento y las buenas prácticas. <pre/>
+                            Si tienes algún proyecto interesante del cual pueda aprender por favor mándame un mensaje, me encantaría formar parte! <pre/>
+                            Actualmente crezco mis habilidades en un proyecto orientado a la salud con bastantes reglas de negocio, <br/>
+                            este proyecto está basado en microservicios usando un framework llamado JHipster que utiliza <br/>
+                            Java, JPA, Spring, Liquidbase entre otras en el backend y React en el frontend.
                         </Header>
                     }
                     <Button attached='bottom' >

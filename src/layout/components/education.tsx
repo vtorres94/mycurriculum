@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Segment, Header, Responsive, Item, Transition } from 'semantic-ui-react';
+import { Icon, Segment, Header, Responsive, Item, Transition, Image} from 'semantic-ui-react';
 
 export interface IEducationProps{
     language: boolean;
@@ -82,23 +82,23 @@ class Education extends React.Component<IEducationProps, IEducationState>{
                             <Transition animation='browse' duration={duration} visible={visible} >
                                 <Item>
                                     <Item.Content>
-                                        <Item.Header>Preparatoria Villanueva</Item.Header>
+                                        <Item.Header>Físico Matemático</Item.Header>
                                         <Item.Meta>2010 - 2013</Item.Meta>
                                         <Item.Description>
-                                            Bachillerato en informática
+                                            Preparatoria Villanueva
                                         </Item.Description>
-                                        <Item.Extra>Concluída</Item.Extra>
+                                        <Item.Extra>Bachillerato</Item.Extra>
                                     </Item.Content>
                                 </Item>
                             </Transition>
                             <Transition animation='browse' duration={duration} visible={visible} >
                             <Item >
                                 <Item.Content>
-                                    <Item.Image src={require('../../assets/images/UAZ.jpg')} size='tiny'/>
-                                    <Item.Header>Universidad Autonoma de Zacatecas</Item.Header>
+                                    <Item.Header>Ingeniería de Software</Item.Header>
                                     <Item.Meta>2013 - 2015</Item.Meta>
                                     <Item.Description>
-                                        Ingeniería de Software
+                                        <Image centered src={require('../../assets/images/UAZ.jpg')} size='tiny'/>
+                                        Universidad Autonoma de Zacatecas
                                     </Item.Description>
                                     <Item.Extra>Inconcluída</Item.Extra>
                                 </Item.Content>
@@ -107,13 +107,13 @@ class Education extends React.Component<IEducationProps, IEducationState>{
                             <Transition animation='browse' duration={duration} visible={visible} >
                             <Item>
                                 <Item.Content>
-                                    <Item.Image src={require('../../assets/images/logotec.png')} size='tiny'/>
-                                    <Item.Header>Instituto Tecnológico Superior de Jerez</Item.Header>
+                                    <Item.Header>Ingeniería en Sistemas Computacionales</Item.Header>
                                     <Item.Meta>2017 - Actualidad</Item.Meta>
                                     <Item.Description>
-                                        Ingeniería en Sistemas Computacionales
+                                        <Image centered src={require('../../assets/images/logotec.png')} size='tiny'/>
+                                        Instituto Tecnológico Superior de Jerez
                                     </Item.Description>
-                                    <Item.Extra>Sabático</Item.Extra>
+                                    <Item.Extra>Sábados</Item.Extra>
                                 </Item.Content>
                             </Item>
                             </Transition>
