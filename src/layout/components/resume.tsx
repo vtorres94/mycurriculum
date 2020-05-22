@@ -109,11 +109,11 @@ class Resume extends React.Component<IResumeProps, IResumeState>{
                         </Header>
                         :
                         <Header>
-                            Hola! soy Desarrollador Web con 6 meses de experiencia siempre en busca del conocimiento y las buenas prácticas. <pre/>
-                            Si tienes algún proyecto interesante del cual pueda aprender por favor mándame un mensaje, me encantaría formar parte! <pre/>
-                            Actualmente crezco mis habilidades en un proyecto orientado a la salud con bastantes reglas de negocio, <br/>
-                            este proyecto está basado en microservicios usando un framework llamado JHipster que utiliza <br/>
-                            Java, JPA, Spring, Liquidbase entre otras en el backend y React en el frontend.
+                            Hello! I'm a Web Developer with 6 months of experience always looking for knowledge and good practices. <pre/>
+                            If you have any interesting projects from which I can learn please send me a message, I would love to be a part! <pre/>
+                            I currently grow my skills in a health-oriented project with quite a few business rules, <br/>
+                            this project is based on microservices using a framework called JHipster that uses <br/>
+                            Java, JPA, Spring, Liquidbase among others in the backend and React on the frontend.
                         </Header>
                     }
                     <Button attached='bottom' >
