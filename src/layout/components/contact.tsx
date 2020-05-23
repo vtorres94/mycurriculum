@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
-import { Icon, Segment, Button, Header, Grid, List, Responsive, Input, TextArea, Form } from 'semantic-ui-react';
+import { Icon, Segment, Button, Header, Grid, List, Responsive, Input, Message, Form } from 'semantic-ui-react';
 import TextField from '@material-ui/core/TextField';
 
-export interface IHeaderProps {
+export interface IFooterProps {
     language: boolean;
 }
 
-export interface IHeaderState {
+export interface IFooterState {
     color: "blue" | "black" | "brown" | "green" | "grey" | "olive" | "orange" | "pink" | "purple" | "red" | "teal" | "violet" | "yellow" | undefined;
     mainFocus: boolean;
     email: string;
     feedback: string;
     name: string;
     message: string;
+    error: boolean;
 }
 
-class Contact extends React.Component<IHeaderProps, IHeaderState>{
-    constructor(props: IHeaderProps) {
+class Contact extends React.Component<IFooterProps, IFooterState>{
+    constructor(props: IFooterProps) {
         super(props);
         this.state = {
             color: 'black',
@@ -24,7 +25,8 @@ class Contact extends React.Component<IHeaderProps, IHeaderState>{
             email: '',
             feedback: '',
             name: '',
-            message: ''
+            message: '',
+            error: false
         }
     }
 
@@ -81,26 +83,35 @@ class Contact extends React.Component<IHeaderProps, IHeaderState>{
                 break;
         }
     };
-    handleSubmit (event) {
-        const templateId = 'template_tQGYAzE5';
-        this.sendFeedback(templateId, {message_html: this.state.feedback, from_name: this.state.name, reply_to: this.state.email})
+
+    handleSubmit () {
+        
+        /* const templateId = 'template_tQGYAzE5';
+        sendFeedback(templateId, {message_html: "hola", from_name: 'miro', reply_to: 'miroundead@gmail.com'}) */
     }
     
-    sendFeedback (templateId, variables) {
-        let window: any;
-        window.emailjs.send(
-            'gmail', templateId,
-            variables
-        ).then(res => {
-            console.log('Email successfully sent!')
+    cleanFields(){
+        this.setState({
+            name: '',
+            email: '',
+            message: '',
+            feedback: '',
+            error: false
         })
-        // Handle errors here however you like, or use a React error boundary
-        .catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
     }
+    
+
     render() {
         return (
             <Segment.Group style={{ background: '#fff', marginLeft: '10%', marginRight: '10%' }}>
                 <Responsive as={Segment}>
+                    <Message
+                        error
+                        onDismiss={() => this.cleanFields()}
+                        header="Mensaje no enviado"
+                        content='Función en desarrollo'
+                        hidden={!this.state.error}
+                    />
                     <Header as='h2' icon textAlign='center' dividing color={this.state.color}>
                         <Header.Content>
                             <Icon name='mail outline' circular onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })} />
@@ -131,11 +142,13 @@ class Contact extends React.Component<IHeaderProps, IHeaderState>{
                                 <TextField
                                     label={this.props.language? "Mensaje" : "Message"}
                                     multiline
+                                    value={this.state.message}
                                     rows={4}
+                                    onChange={e => this.setState({ message: e.target.value })}
                                     variant="outlined"
                                     style={{ width: '100%' }}
                                 />
-                                <Button attached='bottom' onClick={this.handleSubmit}>
+                                <Button attached='bottom' onClick={() => this.setState({ error: true })}>
                                     Send
                                 </Button>
                             </Grid.Column>
@@ -148,3 +161,15 @@ class Contact extends React.Component<IHeaderProps, IHeaderState>{
 }
 
 export default Contact;
+
+function sendFeedback (templateId, variables) {
+    var window: any;
+    window.emailjs.send(
+        'gmail', templateId,
+        variables
+    ).then(res => {
+        console.log('Email successfully sent!')
+    })
+    // Handle errors here however you like, or use a React error boundary
+    .catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
+}
