@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Icon, Segment, Button, Header, Grid, List, Responsive, Input, Message, Form } from 'semantic-ui-react';
+import React from 'react';
+import { Icon, Segment, Button, Header, Grid, Responsive, Message} from 'semantic-ui-react';
 import TextField from '@material-ui/core/TextField';
 
 export interface IFooterProps {

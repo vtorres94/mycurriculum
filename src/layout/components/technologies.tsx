@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Button, Segment, Grid, Header, Image, Card, Rating, Responsive} from 'semantic-ui-react';
+import { Icon, Segment, Header, Image, Card, Rating, Responsive} from 'semantic-ui-react';
 import Slider from 'react-slick';
 
 export interface IHeaderProps{}
