@@ -45,7 +45,7 @@ class Footer extends React.Component<IFooterProps, IFooterState>{
                                     color={ this.state.facebook ? 'blue' : undefined}
                                     onMouseEnter={ () => this.setState({ facebook: true }) }
                                     onMouseLeave={ () => this.setState({ facebook: false }) }
-                                    onClick={() => window.open('https://www.instagram.com/miro_torres/', '_blank')}
+                                    onClick={() => window.open('https://www.facebook.com/MVTorresD/', '_blank')}
                                 />
                                 <Icon
                                     name='instagram'
@@ -53,7 +53,7 @@ class Footer extends React.Component<IFooterProps, IFooterState>{
                                     color={ this.state.instagram ? 'purple' : undefined}
                                     onMouseEnter={ () => this.setState({ instagram: true }) }
                                     onMouseLeave={ () => this.setState({ instagram: false }) }
-                                    onClick={() => window.open('https://www.facebook.com/MVTorresD/', '_blank')}
+                                    onClick={() => window.open('https://www.instagram.com/miro_torres/', '_blank')}
                                 />
                                 <Icon
                                     name='linkedin'

@@ -54,6 +54,15 @@ class Resume extends React.Component<IResumeProps, IResumeState>{
         this.handleInterval(1);
         var interval: any = setInterval(() => this.handleInterval(interval), 3000);
     }
+
+    /* downloadCV() {
+        console.log(window.location.href)
+        var link = document.createElement('a');
+        link.href = 'Curriculum.pdf';
+        link.download = 'VladimirTorresCV.pdf';
+        link.dispatchEvent(new MouseEvent('click')); 
+    } */
+
     render() {
         return (
             <Segment.Group style={{ background: '#fff', marginLeft: '10%', marginRight: '10%' }}>
@@ -116,7 +125,7 @@ class Resume extends React.Component<IResumeProps, IResumeState>{
                             Java, JPA, Spring, Liquidbase among others in the backend and React on the frontend.
                         </Header>
                     }
-                    <Button attached='bottom' >
+                    <Button attached='bottom' onClick={() => window.open('Curriculum.pdf', '_blank')}>
                         {this.props.language ? "Descargar PDF" : "Download PDF"}
                     </Button>
                 </Responsive>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Icon, Segment, Button, Header, Grid, List, Responsive, Input, TextArea, Form } from 'semantic-ui-react';
 import TextField from '@material-ui/core/TextField';
+
 export interface IHeaderProps {
     language: boolean;
 }
@@ -9,6 +10,7 @@ export interface IHeaderState {
     color: "blue" | "black" | "brown" | "green" | "grey" | "olive" | "orange" | "pink" | "purple" | "red" | "teal" | "violet" | "yellow" | undefined;
     mainFocus: boolean;
     email: string;
+    feedback: string;
     name: string;
     message: string;
 }
@@ -20,6 +22,7 @@ class Contact extends React.Component<IHeaderProps, IHeaderState>{
             color: 'black',
             mainFocus: false,
             email: '',
+            feedback: '',
             name: '',
             message: ''
         }
@@ -78,6 +81,22 @@ class Contact extends React.Component<IHeaderProps, IHeaderState>{
                 break;
         }
     };
+    handleSubmit (event) {
+        const templateId = 'template_tQGYAzE5';
+        this.sendFeedback(templateId, {message_html: this.state.feedback, from_name: this.state.name, reply_to: this.state.email})
+    }
+    
+    sendFeedback (templateId, variables) {
+        let window: any;
+        window.emailjs.send(
+            'gmail', templateId,
+            variables
+        ).then(res => {
+            console.log('Email successfully sent!')
+        })
+        // Handle errors here however you like, or use a React error boundary
+        .catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
+    }
     render() {
         return (
             <Segment.Group style={{ background: '#fff', marginLeft: '10%', marginRight: '10%' }}>
@@ -116,9 +135,9 @@ class Contact extends React.Component<IHeaderProps, IHeaderState>{
                                     variant="outlined"
                                     style={{ width: '100%' }}
                                 />
-                                <Button attached='bottom'>
+                                <Button attached='bottom' onClick={this.handleSubmit}>
                                     Send
-                                    </Button>
+                                </Button>
                             </Grid.Column>
                         </Grid>
                     </Grid.Column>
