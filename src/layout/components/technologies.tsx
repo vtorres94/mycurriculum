@@ -165,6 +165,16 @@ class Techs extends React.Component<IHeaderProps, IHeaderState>{
                             </Card.Content>
                         </Card>
                         <Card>
+                            <Image centered src={require('../../assets/images/ts.png')} />
+                            <Card.Content>
+                                <Card.Header>Typescript</Card.Header>
+                                <Card.Meta>Joined in October 2019</Card.Meta>
+                            </Card.Content>
+                            <Card.Content centered>
+                                <Rating icon='star' defaultRating={4} maxRating={5} disabled />
+                            </Card.Content>
+                        </Card>
+                        <Card>
                             <Image centered src={require('../../assets/images/jasper.png')} />
                             <Card.Content>
                                 <Card.Header>Jaspersoft</Card.Header>
@@ -179,6 +189,26 @@ class Techs extends React.Component<IHeaderProps, IHeaderState>{
                             <Card.Content>
                                 <Card.Header>Git</Card.Header>
                                 <Card.Meta>Joined in October 2019</Card.Meta>
+                            </Card.Content>
+                            <Card.Content centered>
+                                <Rating icon='star' defaultRating={3} maxRating={5} disabled />
+                            </Card.Content>
+                        </Card>
+                        <Card>
+                            <Image centered src={require('../../assets/images/postgres.png')} />
+                            <Card.Content>
+                                <Card.Header>PostgreSQL</Card.Header>
+                                <Card.Meta>Joined in 2019</Card.Meta>
+                            </Card.Content>
+                            <Card.Content centered>
+                                <Rating icon='star' defaultRating={3} maxRating={5} disabled />
+                            </Card.Content>
+                        </Card>
+                        <Card>
+                            <Image centered src={require('../../assets/images/mysql.png')} />
+                            <Card.Content>
+                                <Card.Header>MySQL</Card.Header>
+                                <Card.Meta>Joined in 2018</Card.Meta>
                             </Card.Content>
                             <Card.Content centered>
                                 <Rating icon='star' defaultRating={3} maxRating={5} disabled />
