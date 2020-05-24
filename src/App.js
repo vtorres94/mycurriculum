@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Header from './layout/header';
 import Body from './layout/body';
 import Footer from './layout/footer';
+import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -12,9 +13,19 @@ function App() {
   }
   return (
     <div className="App">
-      <Header handleLanguage={handleLanguage}/>
-      <Body language={language}/>
-      <Footer/>
+      {document.onload ?
+        <div className='App-header'>
+          <img src={logo} className="App-logo" alt="logo" />
+        </div>
+      :(
+        <div>
+        <Header handleLanguage={handleLanguage}/>
+        <Body language={language}/>
+        <Footer/>
+        </div>
+      )
+      }
+      
     </div>
   );
 }
