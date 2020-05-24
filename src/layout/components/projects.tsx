@@ -73,7 +73,7 @@ class Projects extends React.Component<IProjectsProps, IProjectsState>{
                 <Responsive as={Segment}>
                     <Header as='h2' icon textAlign='center' dividing color={this.state.color}>
                         <Header.Content>
-                            <Icon name='student' circular onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })}/>
+                            <Icon name='folder open' circular onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })}/>
                             {this.props.language ? "Proyectos" : "Projects"}
                         </Header.Content>
                     </Header>
