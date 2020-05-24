@@ -5,6 +5,7 @@ import Techs from './components/technologies';
 import Experience from './components/cv';
 import Contact from './components/contact';
 import Education from './components/education';
+import Projects from './components/projects';
 
 export interface IBodyProps{
     language: boolean;
@@ -40,6 +41,7 @@ class Body extends React.Component<IBodyProps, IBodyState>{
                     <Education language={this.props.language} scroll={this.state.scroll}/>
                     <Experience language={this.props.language}/>
                     <Techs/>
+                    <Projects language={this.props.language} scroll={this.state.scroll}/>
                     <Contact language={this.props.language}/>
                 </Responsive>
             </Segment.Group>
