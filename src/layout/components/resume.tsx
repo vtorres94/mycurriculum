@@ -125,8 +125,13 @@ class Resume extends React.Component<IResumeProps, IResumeState>{
                             for modern microservice-based web applications.
                         </Header>
                     }
-                    <Button attached='bottom' onClick={() => window.open('Curriculum.pdf', '_blank')}>
-                        {this.props.language ? "Descargar PDF" : "Download PDF"}
+                    <Button attached='bottom' color="facebook" onClick={() => window.open('Curriculum.pdf', '_blank')} animated="fade">
+                        <Button.Content visible>
+                            {this.props.language ? "Descargar PDF" : "Download PDF"}
+                        </Button.Content>
+                        <Button.Content hidden>
+                            <Icon name='download' />
+                        </Button.Content>
                     </Button>
                 </Responsive>
             </Segment.Group>
