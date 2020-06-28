@@ -29,7 +29,25 @@ const Contact: React.SFC<IFooterProps> = props => {
         /* const templateId = 'template_tQGYAzE5';
         sendFeedback(templateId, {message_html: "hola", from_name: 'miro', reply_to: 'miroundead@gmail.com'}) */
     }
-
+    const nodemailer = require("nodemailer");
+    const testAccount = nodemailer.createTestAccount();
+    const transporter = nodemailer.createTransport({
+        host: "smtp.ethereal.email",
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+          user: testAccount.user, // generated ethereal user
+          pass: testAccount.pass, // generated ethereal password
+        },
+    });
+    const info = transporter.sendMail({
+        from: '"Fred Foo 👻" <foo@example.com>', // sender address
+        to: "bar@example.com, baz@example.com", // list of receivers
+        subject: "Hello ✔", // Subject line
+        text: "Hello world?", // plain text body
+        html: "<b>Hello world?</b>", // html body
+    });
+    
     const cleanFields = () => {
         setState({
             ...state,
