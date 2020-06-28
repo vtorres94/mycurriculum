@@ -15,12 +15,9 @@ function App() {
   const components = () => {
       return(
         <div className="App" visible={false}>
-
-        <div>
           <Header handleLanguage={handleLanguage}/>
           <Body language={language}/>
           <Footer/>
-        </div>
         </div>
       )
   }
@@ -28,7 +25,7 @@ function App() {
     // Update the document title using the browser API
     // if(loading){setLoading(true);}
     window.onloadeddata = setLoading(false)
-  });
+  }, []);
   const load = () => {
     return (
       <div className="App">

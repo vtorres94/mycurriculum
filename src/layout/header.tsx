@@ -1,6 +1,5 @@
 import React from 'react';
-import { Icon, Button, Segment, Grid, Header as Text, Responsive, Container } from 'semantic-ui-react';
-
+import { Button, Segment, Header as Text, Responsive } from 'semantic-ui-react';
 export interface IHeaderProps { 
     handleLanguage: () => any
 }
