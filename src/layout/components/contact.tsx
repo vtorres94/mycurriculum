@@ -12,13 +12,32 @@ const Contact: React.SFC<IFooterProps> = props => {
         email: '',
         name: '',
         message: '',
+        emailValido: true,
+        nameValido: true,
+        messageValido: true,
         error: false
     }, setState] = useState();
-    const handleSubmit = () => {
-        window.open('https://api.whatsapp.com/send?phone=+524991036055&text=Hola%20soy%20'+ state.name +'%20%0AEmail:%20'+ state.email +'%0A'+ state.message, '_blank')
-        setState({ ...state, email: '', name: '', message: '' });
+
+    const handleSubmit = async() => {
+        await validateFields();
+        if(state.emailValido && state.nameValido && state.messageValido) {
+            console.log(' entro al if ');
+            window.open('https://api.whatsapp.com/send?phone=+524991036055&text=Hola%20soy%20'+ state.name +'%20%0AEmail:%20'+ state.email +'%0A'+ state.message, '_blank')
+            cleanFields();
+        } else {
+            setState({ ...state, error: true });
+        }
     }
     
+    const validateFields = () => {
+        console.log('validando campos');
+        setState({
+            ...state,
+            nameValido: state.name.trim() !== '' ? true : false,
+            emailValido: state.email.trim() !== '' ? true : false,
+            messageValido: state.message.trim() !== '' ? true : false,
+        })
+    }
     const cleanFields = () => {
         setState({
             ...state,
@@ -36,7 +55,7 @@ const Contact: React.SFC<IFooterProps> = props => {
                     error
                     onDismiss={() => cleanFields()}
                     header="Mensaje no enviado"
-                    content='Función en desarrollo'
+                    content='No puede haber campos vacíos'
                     hidden={!state.error}
                 />
                 <HeaderComponent language={props.language} titulo='Escríbeme!' title='Write to me!' icon='mail outline' />
@@ -50,6 +69,7 @@ const Contact: React.SFC<IFooterProps> = props => {
                                 onChange={e => setState({ ...state, email: e.target.value })}
                                 variant="outlined"
                                 style={{ width: '50%' }}
+                                error={!state.emailValido}
                             />
                             <TextField
                                 label={props.language ? "Nombre" : "Name"}
@@ -58,6 +78,7 @@ const Contact: React.SFC<IFooterProps> = props => {
                                 onChange={e => setState({ ...state, name: e.target.value })}
                                 variant="outlined"
                                 style={{ width: '50%' }}
+                                error={!state.nameValido}
                             />
                         </Grid.Column>
                         <Grid.Column>
@@ -69,6 +90,7 @@ const Contact: React.SFC<IFooterProps> = props => {
                                 onChange={e => setState({ ...state, message: e.target.value })}
                                 variant="outlined"
                                 style={{ width: '100%' }}
+                                error={!state.messageValido}
                             />
                             <Button color='facebook' attached='bottom' onClick={() => handleSubmit()} animated='fade'>
                                 <Button.Content visible>
