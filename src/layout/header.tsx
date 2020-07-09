@@ -3,6 +3,7 @@ import { Button, Segment, Header as Text, Responsive } from 'semantic-ui-react';
 import Snackbar from '@material-ui/core/Snackbar';
 import CloseIcon from '@material-ui/icons/Close';
 import { useGlobal } from './context/GlobalContext';
+// tslint:disable-next: react-hooks/exhaustive-deps
 
 export interface IHeaderProps { }
 
@@ -15,14 +16,16 @@ const Header: React.SFC<IHeaderProps> = () => {
         color: any,
         open: boolean,
         mainFocus: boolean
-    }>
-            ();
+    }>();
+
     const { language, setLanguage } = useGlobal();
+
     useEffect(() => {
         if (state.mainFocus) {
             changeColor();
         }
     }, [state.mainFocus]);
+
     const handleInterval = (interval: number) => {
         for (let i = 0; i <= 7; i++) {
             switch (i) {

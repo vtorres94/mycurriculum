@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Segment, Image, Transition, Card, Responsive, Popup, Grid } from 'semantic-ui-react';
+import React from 'react';
+import { Segment, Image, Card, Responsive, Popup, Grid } from 'semantic-ui-react';
 import HeaderComponent from './headerComponent';
 
 export interface IExperienceProps {
@@ -7,12 +7,7 @@ export interface IExperienceProps {
 }
 
 const Experience: React.SFC<IExperienceProps> = props => {
-    const [state = {
-        duration: 1000,
-        visible: true
-    }] = useState();
 
-    const { duration, visible } = state
     return (
         <Segment.Group style={{ background: '#fff', marginLeft: '10%', marginRight: '10%' }}>
             <Responsive as={Segment}>
@@ -39,7 +34,12 @@ const Experience: React.SFC<IExperienceProps> = props => {
                                         </Card>
                                     }
                                     on="click"
-                                />
+                                    size="huge"
+                                    flowing
+                                    hoverable
+                                >
+                                    <Image src={require('../../assets/images/cultura.jpg')} size="big"/>
+                                </Popup>
                             </Grid.Column>
                             <Grid.Column largeScreen={3} textAlign="center">
                                 <Popup
@@ -59,7 +59,13 @@ const Experience: React.SFC<IExperienceProps> = props => {
                                             </Card.Content>
                                         </Card>
                                     }
-                                />
+                                    on="click"
+                                    size="huge"
+                                    flowing
+                                    hoverable
+                                >
+                                    <Image src={require('../../assets/images/ciesoft.jpg')} size="big"/>
+                                </Popup>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>

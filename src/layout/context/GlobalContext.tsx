@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 
 export const GlobalContext = React.createContext({
    language: true,
-   setLanguage: ({}) => {}
+   setLanguage: (boolean) => {}
 });
 
 export function GlobalProvider(props) {
@@ -22,7 +22,7 @@ export function GlobalProvider(props) {
 export function useGlobal() {
     const context = React.useContext(GlobalContext);
     if (!context) {
-        throw new Error('globales deben estar dentro del provedor');
+        throw new Error('variables globales deben estar dentro del provedor');
     }
     return context;
 }

@@ -10,7 +10,7 @@ function App() {
   const [ loading, setLoading ] = useState(true);
   const components = () => {
       return(
-        <div className="App" visible={false}>
+        <div className="App">
           <GlobalProvider>
             <Header/>
             <Body/>
@@ -20,8 +20,6 @@ function App() {
       )
   }
   useEffect(() => {
-    // Update the document title using the browser API
-    // if(loading){setLoading(true);}
     window.onloadeddata = setLoading(false)
   }, []);
   const load = () => {
