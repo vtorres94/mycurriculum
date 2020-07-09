@@ -4,20 +4,18 @@ import Body from './layout/body';
 import Footer from './layout/footer';
 import logo from './logo.svg';
 import './App.css';
+import { GlobalProvider } from './layout/context/GlobalContext';
 
 function App() {
-  const [ language, setLanguage ] = useState(true);
   const [ loading, setLoading ] = useState(true);
-  const handleLanguage = () => {
-    setLanguage(!language);
-    console.log("pues hay va la cosa" + language);
-  }
   const components = () => {
       return(
         <div className="App" visible={false}>
-          <Header handleLanguage={handleLanguage}/>
-          <Body language={language}/>
-          <Footer/>
+          <GlobalProvider>
+            <Header/>
+            <Body/>
+            <Footer/>
+          </GlobalProvider>
         </div>
       )
   }

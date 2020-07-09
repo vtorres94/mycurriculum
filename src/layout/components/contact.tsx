@@ -23,9 +23,7 @@ const Contact: React.SFC<IFooterProps> = props => {
         message: '',
         error: false
     }, setState] = useState();
-
     const handleSubmit = () => {
-
         /* const templateId = 'template_tQGYAzE5';
         sendFeedback(templateId, {message_html: "hola", from_name: 'miro', reply_to: 'miroundead@gmail.com'}) */
     }
@@ -117,15 +115,3 @@ const Contact: React.SFC<IFooterProps> = props => {
 }
 
 export default Contact;
-
-function sendFeedback(templateId, variables) {
-    var window: any;
-    window.emailjs.send(
-        'gmail', templateId,
-        variables
-    ).then(res => {
-        console.log('Email successfully sent!')
-    })
-        // Handle errors here however you like, or use a React error boundary
-        .catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
-}

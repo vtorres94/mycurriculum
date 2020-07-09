@@ -1,52 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Segment, Image, Responsive } from 'semantic-ui-react';
 import Resume from './components/resume';
 import Techs from './components/technologies';
-import Experience from './components/cv';
+import Experience from './components/experience';
 import Contact from './components/contact';
 import Education from './components/education';
 import Projects from './components/projects';
+import { useGlobal } from './context/GlobalContext';
 
-export interface IBodyProps{
-    language: boolean;
+export interface IBodyProps {
 }
-export interface IBodyState{
-    language: boolean;
-    scroll: number;
-}
-class Body extends React.Component<IBodyProps, IBodyState>{
-    constructor(props: IBodyProps) {
-        super(props);
-        this.state = {
-            language: this.props.language,
-            scroll: 0
-        }
-    }
-    componentDidMount() {    
-        window.onscroll = () => this.handleAnimation();  
-    };
-    
-    handleAnimation = () => {       
-        if (document.documentElement.scrollTop > 50) {     
-            console.log('scrooolll : ' + document.documentElement.scrollTop);      
-         // this.setState({ visible: true });  
+
+const Body: React.SFC<IBodyProps> = props => {
+    const [state = {
+        scroll: 0
+    }, setState] = useState();
+
+    /* const componentDidMount() {    
+        window.onscroll = () => handleAnimation();  
+    }; */
+    const { language } = useGlobal();
+    useEffect(() => {
+        handleAnimation();
+    },[window.onscroll]);
+    const handleAnimation = () => {
+        if (document.documentElement.scrollTop > 50) {
+            console.log('scrooolll : ' + document.documentElement.scrollTop);
+            // this.setState({ visible: true });  
         };
     }
-    render() {
-        return(
-            <Segment.Group scrollable>
-                <Responsive as={Segment}>
-                    <Image centered src={require('../assets/images/yo3.jpg')} size='big' circular />
-                    <Resume language={this.props.language}/>
-                    <Education language={this.props.language} scroll={this.state.scroll}/>
-                    <Experience language={this.props.language}/>
-                    <Techs/>
-                    <Projects language={this.props.language} scroll={this.state.scroll}/>
-                    <Contact language={this.props.language}/>
-                </Responsive>
-            </Segment.Group>
-        );
-    }
+    return (
+        <Segment.Group scrollable>
+            <Responsive as={Segment}>
+                <Image centered src={require('../assets/images/yo3.jpg')} size='big' circular />
+                <Resume language={language} />
+                <Experience language={language} />
+                <Education language={language} scroll={state.scroll} />
+                <Techs />
+                <Projects language={language} scroll={state.scroll} />
+                <Contact language={language} />
+            </Responsive>
+        </Segment.Group>
+    );
 }
 
 export default Body;
