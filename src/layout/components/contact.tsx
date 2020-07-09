@@ -7,44 +7,17 @@ export interface IFooterProps {
     language: boolean;
 }
 
-export interface IFooterState {
-    email: string;
-    feedback: string;
-    name: string;
-    message: string;
-    error: boolean;
-}
-
 const Contact: React.SFC<IFooterProps> = props => {
     const [state = {
         email: '',
-        feedback: '',
         name: '',
         message: '',
         error: false
     }, setState] = useState();
     const handleSubmit = () => {
-        /* const templateId = 'template_tQGYAzE5';
-        sendFeedback(templateId, {message_html: "hola", from_name: 'miro', reply_to: 'miroundead@gmail.com'}) */
+        window.open('https://api.whatsapp.com/send?phone=+524991036055&text=Hola%20soy%20'+ state.name +'%20%0AEmail:%20'+ state.email +'%0A'+ state.message, '_blank')
+        setState({ ...state, email: '', name: '', message: '' });
     }
-    const nodemailer = require("nodemailer");
-    const testAccount = nodemailer.createTestAccount();
-    const transporter = nodemailer.createTransport({
-        host: "smtp.ethereal.email",
-        port: 587,
-        secure: false, // true for 465, false for other ports
-        auth: {
-          user: testAccount.user, // generated ethereal user
-          pass: testAccount.pass, // generated ethereal password
-        },
-    });
-    const info = transporter.sendMail({
-        from: '"Fred Foo 👻" <foo@example.com>', // sender address
-        to: "bar@example.com, baz@example.com", // list of receivers
-        subject: "Hello ✔", // Subject line
-        text: "Hello world?", // plain text body
-        html: "<b>Hello world?</b>", // html body
-    });
     
     const cleanFields = () => {
         setState({
@@ -52,7 +25,6 @@ const Contact: React.SFC<IFooterProps> = props => {
             name: '',
             email: '',
             message: '',
-            feedback: '',
             error: false
         })
     }
@@ -98,12 +70,12 @@ const Contact: React.SFC<IFooterProps> = props => {
                                 variant="outlined"
                                 style={{ width: '100%' }}
                             />
-                            <Button color='facebook' attached='bottom' onClick={() => setState({ ...state, error: true })} animated='fade'>
+                            <Button color='facebook' attached='bottom' onClick={() => handleSubmit()} animated='fade'>
                                 <Button.Content visible>
                                     {props.language ? "Enviar" : "Send"}
                                 </Button.Content>
-                                <Button.Content hidden>
-                                    <Icon name='send' />
+                                <Button.Content color='green' hidden>
+                                    <Icon name='whatsapp' />
                                 </Button.Content>
                             </Button>
                         </Grid.Column>
