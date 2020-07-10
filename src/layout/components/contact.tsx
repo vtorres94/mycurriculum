@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import { Icon, Segment, Button, Grid, Responsive, Message } from 'semantic-ui-react';
 import TextField from '@material-ui/core/TextField';
 import HeaderComponent from './headerComponent';
@@ -6,54 +6,75 @@ import HeaderComponent from './headerComponent';
 export interface IFooterProps {
     language: boolean;
 }
-
+const reducer = (state, { field, value }) => {
+    switch (field) {
+        case 'name':
+            return {
+                ...state,
+                name: value,
+                nameValido: value.trim() !== '' ? true : false
+            }
+        case 'email':
+            return {
+                ...state,
+                email : value,
+                emailValido: value.trim() !== '' ? true : false
+            }
+        case 'message':
+            return {
+                ...state,
+                message : value,
+                messageValido: value.trim() !== '' ? true : false
+            }
+        case 'validacion':
+            console.log('validando campos ' + state.name)
+            return {
+                ...state,
+                nameValido: state.name && state.name !== '' ? true : false,
+                emailValido: state.email && state.email !== '' ? true : false,
+                messageValido: state.message && state.message !== '' ? true : false
+            }
+        case 'valido':
+            if(state.emailValido && state.nameValido && state.messageValido) {
+                console.log('campos validos')
+                window.open('https://api.whatsapp.com/send?phone=+524991036055&text=Hola%20soy%20'+ state.name +'%20%0AEmail:%20'+ state.email +'%0A'+ state.message, '_blank');
+                return {
+                    ...initialState
+                }
+            } else {
+                console.log('campos no validos')
+                return {
+                    ...state,
+                    error: true
+                }
+            }
+    }
+}
+const initialState = {
+    email: '',
+    name: '',
+    message: '',
+    emailValido: true,
+    nameValido: true,
+    messageValido: true,
+    error: false
+}
 const Contact: React.SFC<IFooterProps> = props => {
-    const [state = {
-        email: '',
-        name: '',
-        message: '',
-        emailValido: true,
-        nameValido: true,
-        messageValido: true,
-        error: false
-    }, setState] = useState();
+    const [state, dispatch] = useReducer(reducer, initialState);
+    const { name, email, message, nameValido, emailValido, messageValido } = state;
 
-    const handleSubmit = async() => {
-        await validateFields();
-        if(state.emailValido && state.nameValido && state.messageValido) {
-            console.log(' entro al if ');
-            window.open('https://api.whatsapp.com/send?phone=+524991036055&text=Hola%20soy%20'+ state.name +'%20%0AEmail:%20'+ state.email +'%0A'+ state.message, '_blank')
-            cleanFields();
-        } else {
-            setState({ ...state, error: true });
-        }
+    const handleChange = (e) => {
+        dispatch({ field: e.currentTarget.name, value: e.currentTarget.value });
     }
-    
-    const validateFields = () => {
-        console.log('validando campos');
-        setState({
-            ...state,
-            nameValido: state.name.trim() !== '' ? true : false,
-            emailValido: state.email.trim() !== '' ? true : false,
-            messageValido: state.message.trim() !== '' ? true : false,
-        })
+    const handleSubmit = () => {
+        dispatch({ field: 'validacion', value: null});
+        dispatch({ field: 'valido', value: null});
     }
-    const cleanFields = () => {
-        setState({
-            ...state,
-            name: '',
-            email: '',
-            message: '',
-            error: false
-        })
-    }
-
     return (
         <Segment.Group style={{ background: '#fff', marginLeft: '10%', marginRight: '10%' }}>
             <Responsive as={Segment}>
                 <Message
                     error
-                    onDismiss={() => cleanFields()}
                     header="Mensaje no enviado"
                     content='No puede haber campos vacíos'
                     hidden={!state.error}
@@ -64,33 +85,36 @@ const Contact: React.SFC<IFooterProps> = props => {
                         <Grid.Column>
                             <TextField
                                 label={props.language ? "Correo" : "E-mail"}
-                                value={state.email}
+                                value={email || ''}
                                 type='email'
-                                onChange={e => setState({ ...state, email: e.target.value })}
+                                name="email"
+                                onChange={handleChange}
                                 variant="outlined"
                                 style={{ width: '50%' }}
-                                error={!state.emailValido}
+                                error={!emailValido}
                             />
                             <TextField
                                 label={props.language ? "Nombre" : "Name"}
-                                value={state.name}
+                                value={name || ''}
                                 type='text'
-                                onChange={e => setState({ ...state, name: e.target.value })}
+                                name="name"
+                                onChange={handleChange}
                                 variant="outlined"
                                 style={{ width: '50%' }}
-                                error={!state.nameValido}
+                                error={!nameValido}
                             />
                         </Grid.Column>
                         <Grid.Column>
                             <TextField
                                 label={props.language ? "Mensaje" : "Message"}
                                 multiline
-                                value={state.message}
+                                value={message || ''}
                                 rows={4}
-                                onChange={e => setState({ ...state, message: e.target.value })}
+                                name="message"
+                                onChange={handleChange}
                                 variant="outlined"
                                 style={{ width: '100%' }}
-                                error={!state.messageValido}
+                                error={!messageValido}
                             />
                             <Button color='facebook' attached='bottom' onClick={() => handleSubmit()} animated='fade'>
                                 <Button.Content visible>
