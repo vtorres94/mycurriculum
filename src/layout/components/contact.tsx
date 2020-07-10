@@ -3,7 +3,7 @@ import { Icon, Segment, Button, Grid, Responsive, Message } from 'semantic-ui-re
 import TextField from '@material-ui/core/TextField';
 import HeaderComponent from './headerComponent';
 
-export interface IFooterProps {
+export interface IContactProps {
     language: boolean;
 }
 const reducer = (state, { field, value }) => {
@@ -59,7 +59,7 @@ const initialState = {
     messageValido: true,
     error: false
 }
-const Contact: React.SFC<IFooterProps> = props => {
+const Contact: React.SFC<IContactProps> = props => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const { name, email, message, nameValido, emailValido, messageValido } = state;
 
