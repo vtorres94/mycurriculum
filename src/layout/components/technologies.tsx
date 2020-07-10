@@ -1,11 +1,28 @@
-import React from 'react';
-import { Segment, Image, Card, Rating, Responsive } from 'semantic-ui-react';
+import React, { useReducer } from 'react';
+import { Segment, Image, Card, Rating, Responsive, Icon } from 'semantic-ui-react';
 import Slider from 'react-slick';
 import HeaderComponent from './headerComponent';
+import Switch from '@material-ui/core/Switch';
+import { FormGroup, FormControlLabel } from '@material-ui/core';
 
-export interface ITechsProps { }
+export interface ITechsProps {
+    language: boolean;
+}
 
+const reducer = (state, action) => {
+    switch(action.type) {
+        case 'toogle':
+            return {
+                ...state,
+                listActive: !state.listActive
+            }
+    }
+};
+const initialState = {
+    listActive: false
+};
 const Techs: React.SFC<ITechsProps> = props => {
+    const [state, dispatch] = useReducer(reducer, initialState);
     const settings = {
         dots: true,
         infinite: true,
@@ -16,6 +33,7 @@ const Techs: React.SFC<ITechsProps> = props => {
         autoplay: true,
         autoplaySpeed: 1500
     };
+    
     const skills = [
         {
             id: 1,
@@ -119,11 +137,33 @@ const Techs: React.SFC<ITechsProps> = props => {
     return (
         <Segment.Group style={{ background: '#fff', marginLeft: '10%', marginRight: '10%' }}>
             <Responsive as={Segment}>
-                <HeaderComponent language={true} titulo='Skills' icon='code' />
+                <HeaderComponent language={true} titulo='Skills' icon='code' >
+                    <Icon 
+                        style={{ float:'right'}}
+                        size='tiny'
+                    >
+                        <FormGroup>
+                            <FormControlLabel
+                                control={
+                                    <Switch
+                                        color='primary'
+                                        checked={state.listActive}
+                                        onChange={() => dispatch({type: 'toogle'})}
+                                        inputProps={{ 'aria-label': 'Switch A' }}
+                                    />
+                                }
+                                label={props.language ? "Lista" : "List"}
+                                labelPlacement='bottom'
+                            />
+                        </FormGroup>
+                    
+                    </Icon>
+                </HeaderComponent>
                 <Slider
                     {...settings}
                 >
                     {skills.map(s => 
+                    
                         <Card key={s.id}>
                             <Image centered src={require('../../assets/images/' + s.img)} />
                             <Card.Content>
@@ -133,6 +173,7 @@ const Techs: React.SFC<ITechsProps> = props => {
                             <Card.Content>
                                 <Rating icon='star' defaultRating={s.rating} maxRating={5} disabled />
                             </Card.Content>
+
                         </Card>
                     )}
                 </Slider>

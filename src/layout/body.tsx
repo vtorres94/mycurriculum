@@ -24,7 +24,7 @@ const Body: React.SFC<IBodyProps> = props => {
                 <Resume language={language} />
                 <Experience language={language} />
                 <Education language={language} scroll={state.scroll} />
-                <Techs />
+                <Techs language={language} />
                 <Projects language={language} scroll={state.scroll} />
                 <Contact language={language} />
             </Responsive>

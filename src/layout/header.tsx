@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useReducer } from 'react';
 import { Button, Segment, Header as Text, Responsive } from 'semantic-ui-react';
 import Snackbar from '@material-ui/core/Snackbar';
 import CloseIcon from '@material-ui/icons/Close';
@@ -7,65 +7,88 @@ import { useGlobal } from './context/GlobalContext';
 
 export interface IHeaderProps { }
 
+const headerReducer = (state, action) => {
+    switch(action.type) {
+        case 'language':
+            return{
+                ...state,
+                open: action.payload
+            }
+        case 'entered':
+            return{
+                ...state,
+                mainFocus: true
+            }
+        case 'exited':
+            return{
+                ...state,
+                mainFocus: false
+            }
+        case 'color':
+            return {
+                ...state,
+                color: action.payload
+            }
+           
+    }
+} 
+
+const initialState = {
+    color: 'black',
+    open: false,
+    mainFocus: false
+}
 const Header: React.SFC<IHeaderProps> = () => {
-    const [state = {
-        color: 'black',
-        open: false,
-        mainFocus: false,
-    }, setState] = useState<{
-        color: any,
-        open: boolean,
-        mainFocus: boolean
-    }>();
 
     const { language, setLanguage } = useGlobal();
-
-    useEffect(() => {
-        if (state.mainFocus) {
-            changeColor();
-        }
-    }, [state.mainFocus]);
-
+    const [ state, dispatch ] = useReducer(headerReducer, initialState);
+    const handleButton = (event) => {
+        dispatch({ type: 'language', payload: true });
+        setLanguage(!language);
+    }
+    const handleClose = () => {
+        dispatch({ type: 'language', payload: false });
+    }
+    const handleFocus = () => {
+        dispatch({ type: 'entered', payload: null })
+        changeColor();
+    }
     const handleInterval = (interval: number) => {
         for (let i = 0; i <= 7; i++) {
             switch (i) {
                 case 0:
-                    setTimeout(() => setState({ ...state, color: 'black' }), 0);
+                    setTimeout(() => dispatch({ type: 'color', payload: 'black' }), 0);
                     break;
                 case 1:
-                    setTimeout(() => setState({ ...state, color: 'teal' }), 500);
+                    setTimeout(() => dispatch({ type: 'color', payload: 'teal' }), 500);
                     break;
                 case 2:
-                    setTimeout(() => setState({ ...state, color: 'green' }), 1000);
+                    setTimeout(() => dispatch({ type: 'color', payload: 'green' }), 1000);
                     break;
                 case 3:
-                    setTimeout(() => setState({ ...state, color: 'yellow' }), 1500);
+                    setTimeout(() => dispatch({ type: 'color', payload: 'yellow' }), 1500);
                     break;
                 case 4:
-                    setTimeout(() => setState({ ...state, color: 'purple' }), 2000);
+                    setTimeout(() => dispatch({ type: 'color', payload: 'purple' }), 2000);
                     break;
                 case 5:
-                    setTimeout(() => setState({ ...state, color: 'blue' }), 2500);
+                    setTimeout(() => dispatch({ type: 'color', payload: 'blue' }), 2500);
                     break;
                 case 6:
-                    setTimeout(() => setState({ ...state, color: 'black' }), 2500);
+                    setTimeout(() => dispatch({ type: 'color', payload: 'black' }), 2500);
                     break;
                 case 7:
                     clearInterval(interval);
                     break;
+            }
+            if(!state.mainFocus){
+                clearInterval(interval);
             }
         }
     }
     const changeColor = () => {
         handleInterval(1);
         var interval: any = setInterval(() => handleInterval(interval), 3000);
-    }
-    const handleButton = (event) => {
-        setState({ ...state, open: true });
-        setLanguage(!language);
-    }
-    const handleClose = () => {
-        setState({ ...state, open: false });
     }
     return (
         <Segment.Group attached='top' >
@@ -87,8 +110,8 @@ const Header: React.SFC<IHeaderProps> = () => {
                     inverted
                     color={state.color}
                     onClick={event => handleButton(event)}
-                    onMouseEnter={() => setState({ ...state, mainFocus: true })}
-                    onMouseLeave={() => setState({ ...state, mainFocus: false })}
+                    onMouseEnter={() => handleFocus()}
+                    onMouseLeave={() => dispatch({ type: 'exited', payload: null })}
                 />
                 <Text style={{ marginTop: '100px' }} size='huge' inverted color={state.color}>
                     {"V L A D I M I R \xa0\xa0T O R R E S"}

@@ -13,18 +13,18 @@ const Experience: React.SFC<IExperienceProps> = props => {
             <Responsive as={Segment}>
                 <HeaderComponent language={props.language} titulo='Experiencia' title='Experience' icon='usb' />
                 <React.Fragment>
-                    <Grid columns={2} >
-                        <Grid.Row centered textAlign="center">
-                            <Grid.Column largeScreen={3} textAlign="center">
+                    <Grid columns={2}>
+                        <Grid.Row centered >
+                            <Grid.Column largeScreen={8} textAlign="center">
                                 <Popup
                                     trigger={
-                                        <Card >
+                                        <Card style={{ width: '100%' }}>
                                             <Card.Content>
                                                 <Card.Header>
                                                     Subdirector
                                                 </Card.Header>
                                                 <Card.Meta>2016 - 2018</Card.Meta>
-                                                <Image centered src={require('../../assets/images/logocultura.png')} size='tiny' circular/>
+                                                <Image centered  src={require('../../assets/images/logocultura.png')} style={{ marginTop: '12px'}} size='tiny' circular/>
                                                 <Card.Description>
                                                     Instituto Villanovense de Cultura<br />
                                                             "Antonio Aguilar Barraza"<br />
@@ -63,16 +63,16 @@ const Experience: React.SFC<IExperienceProps> = props => {
                                     </Header>}
                                 </Popup>
                             </Grid.Column>
-                            <Grid.Column largeScreen={3} textAlign="center">
+                            <Grid.Column largeScreen={8} textAlign="center" >
                                 <Popup
                                     trigger={
-                                        <Card>
+                                        <Card style={{ width: '100%' }}>
                                             <Card.Content>
                                                 <Card.Header>
-                                                    Desarrollador Web
+                                                    Desarrollador<br/>Web
                                                     </Card.Header>
                                                 <Card.Meta>2019 - Actualidad</Card.Meta>
-                                                <Image centered src={require('../../assets/images/CIESOFT.png')} size='small' circular style={{ marginTop: '10px'}}/>
+                                                <Image centered src={require('../../assets/images/CIESOFT.png')} size='small' circular />
                                                 <Card.Description>
                                                         CIESOFT<br/>
                                                         Consultoría Integral Empresarial<br/>

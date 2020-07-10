@@ -70,6 +70,9 @@ class HeaderComponent extends React.Component<IHeaderComponentProps, IHeaderComp
                     <Icon name={this.props.icon} circular onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })} />
                     {this.props.language ? this.props.titulo : this.props.title}
                 </Header.Content>
+                <Header.Subheader>
+                    {this.props.children}
+                </Header.Subheader>
             </Header>
         );
     }
