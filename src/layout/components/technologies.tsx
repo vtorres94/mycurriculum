@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import HeaderComponent from './headerComponent';
 import Switch from '@material-ui/core/Switch';
 import { FormGroup, FormControlLabel } from '@material-ui/core';
+import SkillList from './listSkills';
 
 export interface ITechsProps {
     language: boolean;
@@ -159,6 +160,7 @@ const Techs: React.SFC<ITechsProps> = props => {
                     
                     </Icon>
                 </HeaderComponent>
+                {!state.listActive ? 
                 <Slider
                     {...settings}
                 >
@@ -177,9 +179,15 @@ const Techs: React.SFC<ITechsProps> = props => {
                         </Card>
                     )}
                 </Slider>
+                :
+                <SkillList
+                    skillList={skills}
+                >
+                    
+                </SkillList>
+                }
             </Responsive>
         </Segment.Group>
     );
 }
-
 export default Techs;
