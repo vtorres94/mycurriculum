@@ -129,7 +129,7 @@ const Techs: React.SFC<ITechsProps> = props => {
         },
         {
             id: 14,
-            header: 'GIT',
+            header: 'MySQL',
             img: 'mysql.png',
             meta: 'Joined in 2018',
             rating: 3

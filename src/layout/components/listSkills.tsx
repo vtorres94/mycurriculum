@@ -15,7 +15,7 @@ const SkillList: React.SFC<ISkillListProps> = props => {
     return (
         <Grid centered columns={1}>
             <Grid.Column largeScreen={12} textAlign='center'>
-                <List size='big'>
+                <List size='big' animated style={{ maxHeight: '500px', overflow: 'auto' }}>
                     {props.skillList.map(s =>
                         <List.Item >
                             <Image avatar src={require('../../assets/images/' + s.img)} />
