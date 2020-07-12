@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Icon, Header } from 'semantic-ui-react';
+import Tilt from 'react-parallax-tilt';
 
 export interface IHeaderComponentProps {
     language?: boolean;
@@ -67,7 +68,10 @@ class HeaderComponent extends React.Component<IHeaderComponentProps, IHeaderComp
         return (
             <Header as='h2' icon textAlign='center' dividing color={this.state.color}>
                 <Header.Content>
+            <Tilt trackOnWindow={true} gyroscope={true}>
+
                     <Icon name={this.props.icon} circular onMouseEnter={() => this.changeColor()} onMouseLeave={() => this.setState({ mainFocus: false })} />
+            </Tilt>
                     {this.props.language ? this.props.titulo : this.props.title}
                 </Header.Content>
                 <Header.Subheader>

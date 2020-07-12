@@ -1,5 +1,5 @@
 import React from 'react';
-import { Segment, Responsive, List, Image, Progress, Grid } from 'semantic-ui-react';
+import { List, Image, Progress, Grid } from 'semantic-ui-react';
 
 export interface ISkillListProps {
     skillList: {

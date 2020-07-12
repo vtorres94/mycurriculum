@@ -20,7 +20,7 @@ const Body: React.SFC<IBodyProps> = props => {
     return (
         <Segment.Group>
             <Responsive as={Segment}>
-                <Image centered src={require('../assets/images/yo3.jpg')} size='big' circular />
+                <Image centered src={require('../assets/images/yo3.jpg')} size='big' circular/>
                 <Resume language={language} />
                 <Experience language={language} />
                 <Education language={language} scroll={state.scroll} />
