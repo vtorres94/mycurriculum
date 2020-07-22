@@ -25,7 +25,7 @@ const Body: React.SFC<IBodyProps> = props => {
                 <Experience language={language} />
                 <Education language={language} scroll={state.scroll} />
                 <Techs language={language} />
-                <Projects language={language} scroll={state.scroll} />
+                {/* <Projects language={language} scroll={state.scroll} /> */}
                 <Contact language={language} />
             </Responsive>
         </Segment.Group>
