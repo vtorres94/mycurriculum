@@ -23,6 +23,10 @@ const Resume: React.SFC<IResumeProps> = props => {
         git: false
     }
 
+    const openCV = () => {
+        props.language ? window.open('CV.pdf', '_blank') : window.open('EnglishCV.pdf', '_blank')
+    }
+
     const social = () => {
         return (
             <div>
@@ -121,7 +125,7 @@ const Resume: React.SFC<IResumeProps> = props => {
                             for modern microservice-based web applications.
                     </Header>
                 }
-                <Button attached='bottom' color="facebook" onClick={() => window.open('Curriculum.pdf', '_blank')} animated="fade">
+                <Button attached='bottom' color="facebook" onClick={() => openCV()} animated="fade">
                     <Button.Content visible>
                         {props.language ? "Descargar PDF" : "Download PDF"}
                     </Button.Content>
