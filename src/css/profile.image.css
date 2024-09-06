@@ -1,0 +1,15 @@
+.profile-image:hover {
+    animation: increment 0.01s forwards;
+}
+
+@keyframes increment {
+    0% {
+        width: 600px;
+    }
+    0% {
+        width: 610px;
+    }
+    100% {
+        width: 620px;
+    }
+}

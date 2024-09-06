@@ -7,6 +7,7 @@ import Contact from './components/contact';
 import Education from './components/education';
 import Projects from './components/projects';
 import { useGlobal } from './context/GlobalContext';
+import "../css/profile.image.css";
 
 export interface IBodyProps {}
 
@@ -20,7 +21,7 @@ const Body: React.SFC<IBodyProps> = props => {
     return (
         <Segment.Group>
             <Responsive as={Segment}>
-                <Image centered src={require('../assets/images/yo3.jpg')} size='big' circular/>
+                <Image className='profile-image' centered src={require('../assets/images/yo3.jpg')} size='big' circular/>
                 <Resume language={language} />
                 <Experience language={language} />
                 <Education language={language} scroll={state.scroll} />

@@ -115,7 +115,7 @@ const Header: React.SFC<IHeaderProps> = () => {
                 />
                 <Text style={{ marginTop: '100px' }} size='huge' inverted color={state.color}>
                     {"V L A D I M I R \xa0\xa0T O R R E S"}
-                    <Text.Subheader>{"D\xa0 E\xa0 V\xa0 E\xa0 L\xa0 O\xa0 P\xa0 E\xa0 R"}</Text.Subheader>
+                    <Text.Subheader>{"S\xa0 O\xa0 F\xa0 T\xa0 W\xa0 A\xa0 R\xa0 E\xa0\xa0\xa0\xa0 D\xa0 E\xa0 V\xa0 E\xa0 L\xa0 O\xa0 P\xa0 E\xa0 R"}</Text.Subheader>
                 </Text>
                 <Snackbar
                     anchorOrigin={{
